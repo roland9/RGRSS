@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - BlockRSSParser (1.1):
+    - AFNetworking (= 1.2.0)
+  - CocoaLumberjack (1.6.2)
+  - MagicalRecord (2.1)
+  - MBProgressHUD (0.6)
+  - MSNavigationPaneViewController (0.2.0):
+    - PRTween (~> 0.0.1)
+  - NullSafe (1.2)
+  - PonyDebugger (0.3.0):
+    - SocketRocket
+  - PRTween (0.0.1)
+  - SocketRocket (0.2.0)
+  - TSMessages (0.9.3)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BlockRSSParser (~> 1.1)
+  - CocoaLumberjack
+  - MagicalRecord
+  - MBProgressHUD
+  - MSNavigationPaneViewController
+  - NullSafe
+  - PonyDebugger
+  - TSMessages
+
+SPEC CHECKSUMS:
+  AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
+  BlockRSSParser: b169c3d2d0f80b9214df1fee32d299407d1406d4
+  CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
+  MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
+  MBProgressHUD: 9b55a90566fb5d07df0602f6fd9fa04510ad5d52
+  MSNavigationPaneViewController: 179285558ba1a61a9de68e84d91e77efccb3f3d6
+  NullSafe: ec359e864f3b8d9c2d81aaa2bdbac8280bba1be2
+  PonyDebugger: 72c2277c30f247390116ae328fe24082e0ed558e
+  PRTween: d0439e7917031328f81de4910c5b02e202389939
+  SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
+  TSMessages: e741d102e8291074b4ee7545b53c90ed5f220dd5
+
+COCOAPODS: 0.20.2

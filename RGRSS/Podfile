@@ -1,0 +1,11 @@
+platform :ios, '6.0'
+
+pod 'AFNetworking'
+pod 'MagicalRecord'
+pod 'CocoaLumberjack'
+pod 'MSNavigationPaneViewController'
+pod 'NullSafe'
+pod 'MBProgressHUD'
+pod 'PonyDebugger'
+pod 'TSMessages'
+pod 'BlockRSSParser', '~> 1.1'
