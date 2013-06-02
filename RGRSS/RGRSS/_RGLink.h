@@ -5,10 +5,10 @@
 
 
 extern const struct RGLinkAttributes {
-	 NSString *href;
-	 NSString *rel;
-	 NSString *title;
-	 NSString *type;
+	__unsafe_unretained NSString *href;
+	__unsafe_unretained NSString *rel;
+	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *type;
 } RGLinkAttributes;
 
 extern const struct RGLinkRelationships {
@@ -36,7 +36,7 @@ extern const struct RGLinkFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* href;
+@property (nonatomic, strong) NSString* href;
 
 
 
@@ -46,7 +46,7 @@ extern const struct RGLinkFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* rel;
+@property (nonatomic, strong) NSString* rel;
 
 
 
@@ -56,7 +56,7 @@ extern const struct RGLinkFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 
 
 
@@ -66,7 +66,7 @@ extern const struct RGLinkFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* type;
+@property (nonatomic, strong) NSString* type;
 
 
 

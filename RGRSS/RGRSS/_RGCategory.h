@@ -5,12 +5,12 @@
 
 
 extern const struct RGCategoryAttributes {
-	 NSString *category;
+	__unsafe_unretained NSString *category;
 } RGCategoryAttributes;
 
 extern const struct RGCategoryRelationships {
-	 NSString *channel;
-	 NSString *item;
+	__unsafe_unretained NSString *channel;
+	__unsafe_unretained NSString *item;
 } RGCategoryRelationships;
 
 extern const struct RGCategoryFetchedProperties {
@@ -34,7 +34,7 @@ extern const struct RGCategoryFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* category;
+@property (nonatomic, strong) NSString* category;
 
 
 
@@ -44,14 +44,14 @@ extern const struct RGCategoryFetchedProperties {
 
 
 
-@property (nonatomic, retain) RGChannel *channel;
+@property (nonatomic, strong) RGChannel *channel;
 
 //- (BOOL)validateChannel:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) RGItem *item;
+@property (nonatomic, strong) RGItem *item;
 
 //- (BOOL)validateItem:(id*)value_ error:(NSError**)error_;
 

@@ -52,7 +52,8 @@
     STAssertNotNil(feed, @"feed empty");
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"RGRSS.sqlite"];
-
+//    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"RGRSS.sqlite"];
+    
     __block RGChannel *appFeed = nil;
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
         
@@ -69,7 +70,7 @@
 //    
 //    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
 //
-//    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:inputURL];  // @"http://blog.lelevier.fr/rss"]];
+//    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://blog.lelevier.fr/rss"]];
 //    [RSSParser parseRSSFeedForRequest:req success:^(NSArray *feedItems) {
 //        
 //        //you get an array of RSSItem

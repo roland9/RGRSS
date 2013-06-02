@@ -5,24 +5,24 @@
 
 
 extern const struct RGChannelAttributes {
-	 NSString *cloud;
-	 NSString *copyright;
-	 NSString *docs;
-	 NSString *feedDescription;
-	 NSString *generator;
-	 NSString *language;
-	 NSString *lastBuildDate;
-	 NSString *link;
-	 NSString *managingEditor;
-	 NSString *pubDate;
-	 NSString *title;
-	 NSString *ttl;
-	 NSString *webMaster;
+	__unsafe_unretained NSString *cloud;
+	__unsafe_unretained NSString *copyright;
+	__unsafe_unretained NSString *docs;
+	__unsafe_unretained NSString *feedDescription;
+	__unsafe_unretained NSString *generator;
+	__unsafe_unretained NSString *language;
+	__unsafe_unretained NSString *lastBuildDate;
+	__unsafe_unretained NSString *link;
+	__unsafe_unretained NSString *managingEditor;
+	__unsafe_unretained NSString *pubDate;
+	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *ttl;
+	__unsafe_unretained NSString *webMaster;
 } RGChannelAttributes;
 
 extern const struct RGChannelRelationships {
-	 NSString *category;
-	 NSString *items;
+	__unsafe_unretained NSString *category;
+	__unsafe_unretained NSString *items;
 } RGChannelRelationships;
 
 extern const struct RGChannelFetchedProperties {
@@ -58,7 +58,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* cloud;
+@property (nonatomic, strong) NSString* cloud;
 
 
 
@@ -68,7 +68,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* copyright;
+@property (nonatomic, strong) NSString* copyright;
 
 
 
@@ -78,7 +78,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* docs;
+@property (nonatomic, strong) NSString* docs;
 
 
 
@@ -88,7 +88,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* feedDescription;
+@property (nonatomic, strong) NSString* feedDescription;
 
 
 
@@ -98,7 +98,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* generator;
+@property (nonatomic, strong) NSString* generator;
 
 
 
@@ -108,7 +108,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* language;
+@property (nonatomic, strong) NSString* language;
 
 
 
@@ -118,7 +118,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* lastBuildDate;
+@property (nonatomic, strong) NSDate* lastBuildDate;
 
 
 
@@ -128,7 +128,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* link;
+@property (nonatomic, strong) NSString* link;
 
 
 
@@ -138,7 +138,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* managingEditor;
+@property (nonatomic, strong) NSString* managingEditor;
 
 
 
@@ -148,7 +148,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* pubDate;
+@property (nonatomic, strong) NSDate* pubDate;
 
 
 
@@ -158,7 +158,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 
 
 
@@ -168,7 +168,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSNumber* ttl;
+@property (nonatomic, strong) NSNumber* ttl;
 
 
 
@@ -182,7 +182,7 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* webMaster;
+@property (nonatomic, strong) NSString* webMaster;
 
 
 
@@ -192,14 +192,14 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, retain) RGCategory *category;
+@property (nonatomic, strong) RGCategory *category;
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) RGItem *items;
+@property (nonatomic, strong) RGItem *items;
 
 //- (BOOL)validateItems:(id*)value_ error:(NSError**)error_;
 

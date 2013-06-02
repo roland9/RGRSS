@@ -5,20 +5,20 @@
 
 
 extern const struct RGItemAttributes {
-	 NSString *author;
-	 NSString *comments;
-	 NSString *enclosure;
-	 NSString *guid;
-	 NSString *itemDescription;
-	 NSString *linkXXX;
-	 NSString *pubDate;
-	 NSString *source;
-	 NSString *title;
+	__unsafe_unretained NSString *author;
+	__unsafe_unretained NSString *comments;
+	__unsafe_unretained NSString *enclosure;
+	__unsafe_unretained NSString *guid;
+	__unsafe_unretained NSString *itemDescription;
+	__unsafe_unretained NSString *linkXXX;
+	__unsafe_unretained NSString *pubDate;
+	__unsafe_unretained NSString *source;
+	__unsafe_unretained NSString *title;
 } RGItemAttributes;
 
 extern const struct RGItemRelationships {
-	 NSString *category;
-	 NSString *channel;
+	__unsafe_unretained NSString *category;
+	__unsafe_unretained NSString *channel;
 } RGItemRelationships;
 
 extern const struct RGItemFetchedProperties {
@@ -50,7 +50,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* author;
+@property (nonatomic, strong) NSString* author;
 
 
 
@@ -60,7 +60,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* comments;
+@property (nonatomic, strong) NSString* comments;
 
 
 
@@ -70,7 +70,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* enclosure;
+@property (nonatomic, strong) NSString* enclosure;
 
 
 
@@ -80,7 +80,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* guid;
+@property (nonatomic, strong) NSString* guid;
 
 
 
@@ -90,7 +90,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* itemDescription;
+@property (nonatomic, strong) NSString* itemDescription;
 
 
 
@@ -100,7 +100,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* linkXXX;
+@property (nonatomic, strong) NSString* linkXXX;
 
 
 
@@ -110,7 +110,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSDate* pubDate;
+@property (nonatomic, strong) NSDate* pubDate;
 
 
 
@@ -120,7 +120,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* source;
+@property (nonatomic, strong) NSString* source;
 
 
 
@@ -130,7 +130,7 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 
 
 
@@ -140,14 +140,14 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, retain) RGCategory *category;
+@property (nonatomic, strong) RGCategory *category;
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) RGChannel *channel;
+@property (nonatomic, strong) RGChannel *channel;
 
 //- (BOOL)validateChannel:(id*)value_ error:(NSError**)error_;
 

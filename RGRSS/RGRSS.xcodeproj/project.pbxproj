@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		AB73502B175B76040006E22D /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AB73502C175B76040006E22D /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				AB73502F175B76150006E22D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		AB712B23175A8A850039AC42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
 		AB712B25175A8A850039AC42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
@@ -28,12 +42,6 @@
 		AB712B55175A8A860039AC42 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B28175A8A850039AC42 /* CoreData.framework */; };
 		AB712B5D175A8A860039AC42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB712B5B175A8A860039AC42 /* InfoPlist.strings */; };
 		AB712B60175A8A860039AC42 /* RGRSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB712B5F175A8A860039AC42 /* RGRSSTests.m */; };
-		AB730919175A9D53006BC71C /* RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730918175A9D53006BC71C /* RGChannel.m */; };
-		AB73091A175A9D53006BC71C /* RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730918175A9D53006BC71C /* RGChannel.m */; };
-		AB73091D175A9D54006BC71C /* RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73091C175A9D54006BC71C /* RGItem.m */; };
-		AB73091E175A9D54006BC71C /* RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73091C175A9D54006BC71C /* RGItem.m */; };
-		AB730921175A9D54006BC71C /* RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730920175A9D54006BC71C /* RGCategory.m */; };
-		AB730922175A9D54006BC71C /* RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730920175A9D54006BC71C /* RGCategory.m */; };
 		AB730946175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730927175AA281006BC71C /* NSDate_FeedParserExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB730947175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730927175AA281006BC71C /* NSDate_FeedParserExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB730948175AA281006BC71C /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730929175AA281006BC71C /* NSString_extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -60,6 +68,22 @@
 		AB73095D175AA281006BC71C /* FPExtensionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730943175AA281006BC71C /* FPExtensionNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB73095E175AA281006BC71C /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730945175AA281006BC71C /* FPExtensionTextNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB73095F175AA281006BC71C /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AB730945175AA281006BC71C /* FPExtensionTextNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AB735040175B77010006E22D /* _RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735031175B77000006E22D /* _RGCategory.m */; };
+		AB735041175B77010006E22D /* _RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735031175B77000006E22D /* _RGCategory.m */; };
+		AB735042175B77010006E22D /* _RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735033175B77000006E22D /* _RGChannel.m */; };
+		AB735043175B77010006E22D /* _RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735033175B77000006E22D /* _RGChannel.m */; };
+		AB735044175B77010006E22D /* _RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735035175B77000006E22D /* _RGItem.m */; };
+		AB735045175B77010006E22D /* _RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735035175B77000006E22D /* _RGItem.m */; };
+		AB735046175B77010006E22D /* _RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735037175B77010006E22D /* _RGLink.m */; };
+		AB735047175B77010006E22D /* _RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735037175B77010006E22D /* _RGLink.m */; };
+		AB735048175B77010006E22D /* RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735039175B77010006E22D /* RGCategory.m */; };
+		AB735049175B77010006E22D /* RGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB735039175B77010006E22D /* RGCategory.m */; };
+		AB73504A175B77010006E22D /* RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503B175B77010006E22D /* RGChannel.m */; };
+		AB73504B175B77010006E22D /* RGChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503B175B77010006E22D /* RGChannel.m */; };
+		AB73504C175B77010006E22D /* RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503D175B77010006E22D /* RGItem.m */; };
+		AB73504D175B77010006E22D /* RGItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503D175B77010006E22D /* RGItem.m */; };
+		AB73504E175B77010006E22D /* RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503F175B77010006E22D /* RGLink.m */; };
+		AB73504F175B77010006E22D /* RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503F175B77010006E22D /* RGLink.m */; };
 		ABB09311175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
 		ABB09312175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
 		C1141842B8B04714ADDC6535 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896FDD43BD36420FA5C52546 /* libPods.a */; };
@@ -104,12 +128,6 @@
 		AB712B5C175A8A860039AC42 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB712B5E175A8A860039AC42 /* RGRSSTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGRSSTests.h; sourceTree = "<group>"; };
 		AB712B5F175A8A860039AC42 /* RGRSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGRSSTests.m; sourceTree = "<group>"; };
-		AB730917175A9D53006BC71C /* RGChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RGChannel.h; path = Entities/RGChannel.h; sourceTree = "<group>"; };
-		AB730918175A9D53006BC71C /* RGChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RGChannel.m; path = Entities/RGChannel.m; sourceTree = "<group>"; };
-		AB73091B175A9D54006BC71C /* RGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RGItem.h; path = Entities/RGItem.h; sourceTree = "<group>"; };
-		AB73091C175A9D54006BC71C /* RGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RGItem.m; path = Entities/RGItem.m; sourceTree = "<group>"; };
-		AB73091F175A9D54006BC71C /* RGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RGCategory.h; path = Entities/RGCategory.h; sourceTree = "<group>"; };
-		AB730920175A9D54006BC71C /* RGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RGCategory.m; path = Entities/RGCategory.m; sourceTree = "<group>"; };
 		AB730926175AA281006BC71C /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
 		AB730927175AA281006BC71C /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
 		AB730928175AA281006BC71C /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
@@ -140,6 +158,22 @@
 		AB730943175AA281006BC71C /* FPExtensionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionNode.m; sourceTree = "<group>"; };
 		AB730944175AA281006BC71C /* FPExtensionTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionTextNode.h; sourceTree = "<group>"; };
 		AB730945175AA281006BC71C /* FPExtensionTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionTextNode.m; sourceTree = "<group>"; };
+		AB735030175B77000006E22D /* _RGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGCategory.h; sourceTree = "<group>"; };
+		AB735031175B77000006E22D /* _RGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGCategory.m; sourceTree = "<group>"; };
+		AB735032175B77000006E22D /* _RGChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGChannel.h; sourceTree = "<group>"; };
+		AB735033175B77000006E22D /* _RGChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGChannel.m; sourceTree = "<group>"; };
+		AB735034175B77000006E22D /* _RGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGItem.h; sourceTree = "<group>"; };
+		AB735035175B77000006E22D /* _RGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGItem.m; sourceTree = "<group>"; };
+		AB735036175B77010006E22D /* _RGLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGLink.h; sourceTree = "<group>"; };
+		AB735037175B77010006E22D /* _RGLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGLink.m; sourceTree = "<group>"; };
+		AB735038175B77010006E22D /* RGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGCategory.h; sourceTree = "<group>"; };
+		AB735039175B77010006E22D /* RGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGCategory.m; sourceTree = "<group>"; };
+		AB73503A175B77010006E22D /* RGChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGChannel.h; sourceTree = "<group>"; };
+		AB73503B175B77010006E22D /* RGChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGChannel.m; sourceTree = "<group>"; };
+		AB73503C175B77010006E22D /* RGItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGItem.h; sourceTree = "<group>"; };
+		AB73503D175B77010006E22D /* RGItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItem.m; sourceTree = "<group>"; };
+		AB73503E175B77010006E22D /* RGLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGLink.h; sourceTree = "<group>"; };
+		AB73503F175B77010006E22D /* RGLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGLink.m; sourceTree = "<group>"; };
 		ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rss2sample.xml.rss; sourceTree = "<group>"; };
 		FAF87759D20D4E1C8398E139 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -208,6 +242,22 @@
 		AB712B2A175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXGroup;
 			children = (
+				AB735030175B77000006E22D /* _RGCategory.h */,
+				AB735031175B77000006E22D /* _RGCategory.m */,
+				AB735032175B77000006E22D /* _RGChannel.h */,
+				AB735033175B77000006E22D /* _RGChannel.m */,
+				AB735034175B77000006E22D /* _RGItem.h */,
+				AB735035175B77000006E22D /* _RGItem.m */,
+				AB735036175B77010006E22D /* _RGLink.h */,
+				AB735037175B77010006E22D /* _RGLink.m */,
+				AB735038175B77010006E22D /* RGCategory.h */,
+				AB735039175B77010006E22D /* RGCategory.m */,
+				AB73503A175B77010006E22D /* RGChannel.h */,
+				AB73503B175B77010006E22D /* RGChannel.m */,
+				AB73503C175B77010006E22D /* RGItem.h */,
+				AB73503D175B77010006E22D /* RGItem.m */,
+				AB73503E175B77010006E22D /* RGLink.h */,
+				AB73503F175B77010006E22D /* RGLink.m */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
 				AB712B33175A8A850039AC42 /* RGAppDelegate.h */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
@@ -260,12 +310,6 @@
 		AB72FD76175A8F0F00D11C54 /* Core Data Entities */ = {
 			isa = PBXGroup;
 			children = (
-				AB73091F175A9D54006BC71C /* RGCategory.h */,
-				AB730920175A9D54006BC71C /* RGCategory.m */,
-				AB73091B175A9D54006BC71C /* RGItem.h */,
-				AB73091C175A9D54006BC71C /* RGItem.m */,
-				AB730917175A9D53006BC71C /* RGChannel.h */,
-				AB730918175A9D53006BC71C /* RGChannel.m */,
 			);
 			name = "Core Data Entities";
 			sourceTree = "<group>";
@@ -413,6 +457,7 @@
 			targets = (
 				AB712B1E175A8A850039AC42 /* RGRSS */,
 				AB712B4F175A8A860039AC42 /* RGRSSTests */,
+				AB73502B175B76040006E22D /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -471,6 +516,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		AB73502F175B76150006E22D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd RGRSS\n/usr/local/bin/mogenerator  --template-var arc=true -m RGRSS.xcdatamodeld/RGRSS.xcdatamodel/";
+		};
 		FB872459951D41F7B3E074B3 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,9 +555,6 @@
 				AB712B44175A8A860039AC42 /* RGRSS.xcdatamodeld in Sources */,
 				AB712B47175A8A860039AC42 /* RGMasterViewController.m in Sources */,
 				AB712B4A175A8A860039AC42 /* RGDetailViewController.m in Sources */,
-				AB730919175A9D53006BC71C /* RGChannel.m in Sources */,
-				AB73091D175A9D54006BC71C /* RGItem.m in Sources */,
-				AB730921175A9D54006BC71C /* RGCategory.m in Sources */,
 				AB730946175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */,
 				AB730948175AA281006BC71C /* NSString_extensions.m in Sources */,
 				AB73094A175AA281006BC71C /* FPCategory.m in Sources */,
@@ -513,6 +568,14 @@
 				AB73095A175AA281006BC71C /* FPExtensionElementNode.m in Sources */,
 				AB73095C175AA281006BC71C /* FPExtensionNode.m in Sources */,
 				AB73095E175AA281006BC71C /* FPExtensionTextNode.m in Sources */,
+				AB735040175B77010006E22D /* _RGCategory.m in Sources */,
+				AB735042175B77010006E22D /* _RGChannel.m in Sources */,
+				AB735044175B77010006E22D /* _RGItem.m in Sources */,
+				AB735046175B77010006E22D /* _RGLink.m in Sources */,
+				AB735048175B77010006E22D /* RGCategory.m in Sources */,
+				AB73504A175B77010006E22D /* RGChannel.m in Sources */,
+				AB73504C175B77010006E22D /* RGItem.m in Sources */,
+				AB73504E175B77010006E22D /* RGLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,9 +584,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB712B60175A8A860039AC42 /* RGRSSTests.m in Sources */,
-				AB73091A175A9D53006BC71C /* RGChannel.m in Sources */,
-				AB73091E175A9D54006BC71C /* RGItem.m in Sources */,
-				AB730922175A9D54006BC71C /* RGCategory.m in Sources */,
 				AB730947175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */,
 				AB730949175AA281006BC71C /* NSString_extensions.m in Sources */,
 				AB73094B175AA281006BC71C /* FPCategory.m in Sources */,
@@ -537,6 +597,14 @@
 				AB73095B175AA281006BC71C /* FPExtensionElementNode.m in Sources */,
 				AB73095D175AA281006BC71C /* FPExtensionNode.m in Sources */,
 				AB73095F175AA281006BC71C /* FPExtensionTextNode.m in Sources */,
+				AB735041175B77010006E22D /* _RGCategory.m in Sources */,
+				AB735043175B77010006E22D /* _RGChannel.m in Sources */,
+				AB735045175B77010006E22D /* _RGItem.m in Sources */,
+				AB735047175B77010006E22D /* _RGLink.m in Sources */,
+				AB735049175B77010006E22D /* RGCategory.m in Sources */,
+				AB73504B175B77010006E22D /* RGChannel.m in Sources */,
+				AB73504D175B77010006E22D /* RGItem.m in Sources */,
+				AB73504F175B77010006E22D /* RGLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +771,20 @@
 			};
 			name = Release;
 		};
+		AB73502D175B76040006E22D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AB73502E175B76040006E22D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -732,6 +814,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AB73502C175B76040006E22D /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB73502D175B76040006E22D /* Debug */,
+				AB73502E175B76040006E22D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
