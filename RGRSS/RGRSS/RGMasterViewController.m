@@ -9,12 +9,45 @@
 #import "RGMasterViewController.h"
 
 #import "RGDetailViewController.h"
+#import <CoreData+MagicalRecord.h>
+#import "FPParser.h"
+#import "FPFeed.h"
+#import "RGChannel.h"
+
 
 @interface RGMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation RGMasterViewController
+
+- (void)initDataSample
+{
+    NSString *inputFile = [[NSBundle mainBundle] pathForResource:@"rss2sample.xml" ofType:@"rss"];
+    NSAssert(inputFile, @"could not find RSS input file");
+    //    NSInputStream *inputStream = [[NSInputStream alloc] initWithFileAtPath:inputFile];
+    NSData *inputData = [NSData dataWithContentsOfFile:inputFile];
+    
+    NSError *error = nil;
+    FPFeed *feed = [FPParser parsedFeedWithData:inputData error:&error];
+    
+    NSAssert(feed, @"feed empty");
+    
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"RGRSS.sqlite"];
+    //    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"RGRSS.sqlite"];
+    
+    __block RGChannel *appFeed = nil;
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        NSString *feedTitle = [feed title];
+        appFeed = [RGChannel feedWithName:feedTitle inContext:localContext];
+        [appFeed MR_importValuesForKeysWithObject:feed];
+        
+    }];
+    
+    NSLog(@"done");
+}
+
 
 - (void)awakeFromNib
 {
@@ -23,6 +56,8 @@
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
     [super awakeFromNib];
+    
+    [self initDataSample];
 }
 
 - (void)viewDidLoad
@@ -137,14 +172,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RGChannel" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pubDate" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -229,7 +264,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"pubDate"] description];
 }
 
 @end
