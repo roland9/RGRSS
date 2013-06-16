@@ -1,19 +1,18 @@
 //
-//  RGMasterViewController.m
+//  RGItemsTVC.m
 //  RGRSS
 //
-//  Created by Roland on 01/06/2013.
+//  Created by Roland on 16/06/2013.
 //  Copyright (c) 2013 RG. All rights reserved.
 //
 
-#import "RGMasterViewController.h"
-
-#import "RGDetailViewController.h"
-#import "FPParser.h"
-#import "FPFeed.h"
-#import "RGChannel.h"
 #import "RGItemsTVC.h"
+#import "RGDetailViewController.h"
+//#import "FPParser.h"
+//#import "FPFeed.h"
+#import "RGChannel.h"
 #import "DDLog.h"
+
 
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_INFO;
@@ -22,12 +21,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 #endif
 
 
-@interface RGMasterViewController ()
-@property (nonatomic, retain) RGChannel *channel;
+@interface RGItemsTVC ()
 @end
 
 
-@implementation RGMasterViewController
+@implementation RGItemsTVC
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - RGBaseFRCProtocol - Fetched results controller & Table View
@@ -36,21 +35,25 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        NSAssert([object isKindOfClass:[RGChannel class]], @"wrong class");
-        _channel = (RGChannel *)object;
+        self.detailViewController.detailItem = object;
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showItems"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RGChannel *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        NSAssert([object isKindOfClass:[RGChannel class]], @"wrong class");
-        
-        RGItemsTVC *destinationVC = [segue destinationViewController];
-        NSAssert([destinationVC isKindOfClass:[RGItemsTVC class]], @"wrong class");
-        [destinationVC setChannel:object];
+        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setDetailItem:object];
+    }
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        RGChannel *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//        NSAssert([object isKindOfClass:[RGChannel class]], @"wrong class");
+//        
+//        RGItemsTVC *destinationVC = [segue destinationViewController];
+//        NSAssert([destinationVC isKindOfClass:[RGItemsTVC class]], @"wrong class");
+//        [destinationVC setChannel:object];
     }
 }
 
@@ -60,7 +63,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 - (NSString *)entityName {
-    return @"RGChannel";
+    return @"RGItem";
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -72,31 +75,6 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Object Life Cycle
-
-- (void)initDataSample
-{
-    NSString *inputFile = [[NSBundle mainBundle] pathForResource:@"rss2sample.xml" ofType:@"rss"];
-    NSAssert(inputFile, @"could not find RSS input file");
-    //    NSInputStream *inputStream = [[NSInputStream alloc] initWithFileAtPath:inputFile];
-    NSData *inputData = [NSData dataWithContentsOfFile:inputFile];
-    
-    NSError *error = nil;
-    FPFeed *feed = [FPParser parsedFeedWithData:inputData error:&error];
-    
-    NSAssert(feed, @"feed empty");
-    
-    __block RGChannel *appFeed = nil;
-    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        
-        NSString *feedTitle = [feed title];
-        appFeed = [RGChannel feedWithName:feedTitle inContext:localContext];
-        [appFeed MR_importValuesForKeysWithObject:feed];
-        
-    }];
-    
-    NSLog(@"done");
-}
-
 
 - (void)awakeFromNib
 {
@@ -112,12 +90,11 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //    self.navigationItem.rightBarButtonItem = addButton;
-    
-    [self initDataSample];
+    self.detailViewController = (RGDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning
