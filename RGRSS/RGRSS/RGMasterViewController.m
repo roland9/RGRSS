@@ -73,9 +73,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Object Life Cycle
 
-- (void)initDataSample
+- (void)initDataSample:(NSString *)fileName type:(NSString *)type
 {
-    NSString *inputFile = [[NSBundle mainBundle] pathForResource:@"rss2sample.xml" ofType:@"rss"];
+    NSString *inputFile = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
     NSAssert(inputFile, @"could not find RSS input file");
     //    NSInputStream *inputStream = [[NSInputStream alloc] initWithFileAtPath:inputFile];
     NSData *inputData = [NSData dataWithContentsOfFile:inputFile];
@@ -117,8 +117,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //    self.navigationItem.rightBarButtonItem = addButton;
     
-    [self initDataSample];
+    [self initDataSample:@"rss2sample.xml" type:@"rss"];
+    [self initDataSample:@"spiegelIndex" type:@"rss"];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

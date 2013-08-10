@@ -90,6 +90,8 @@
 		AB73504F175B77010006E22D /* RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503F175B77010006E22D /* RGLink.m */; };
 		ABB09311175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
 		ABB09312175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
+		ABF6983117B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
+		ABF6983217B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
 		C1141842B8B04714ADDC6535 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896FDD43BD36420FA5C52546 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +185,7 @@
 		AB73503E175B77010006E22D /* RGLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGLink.h; sourceTree = "<group>"; };
 		AB73503F175B77010006E22D /* RGLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGLink.m; sourceTree = "<group>"; };
 		ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rss2sample.xml.rss; sourceTree = "<group>"; };
+		ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spiegelIndex.rss; sourceTree = "<group>"; };
 		FAF87759D20D4E1C8398E139 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -408,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */,
+				ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */,
 			);
 			path = RSSSamples;
 			sourceTree = "<group>";
@@ -492,6 +496,7 @@
 				AB712B39175A8A860039AC42 /* Default@2x.png in Resources */,
 				AB712B3B175A8A860039AC42 /* Default-568h@2x.png in Resources */,
 				AB712B3E175A8A860039AC42 /* MainStoryboard_iPhone.storyboard in Resources */,
+				ABF6983117B6FF61002B59E7 /* spiegelIndex.rss in Resources */,
 				AB712B41175A8A860039AC42 /* MainStoryboard_iPad.storyboard in Resources */,
 				ABB09311175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */,
 			);
@@ -503,6 +508,7 @@
 			files = (
 				AB712B5D175A8A860039AC42 /* InfoPlist.strings in Resources */,
 				ABB09312175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */,
+				ABF6983217B6FF61002B59E7 /* spiegelIndex.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
