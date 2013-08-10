@@ -219,13 +219,9 @@
 		AB1F83A5176E507B00CE3C6E /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				AB1F83A6176E509B00CE3C6E /* RGBaseTVC.h */,
 				AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */,
-				AB712B45175A8A860039AC42 /* RGMasterViewController.h */,
 				AB712B46175A8A860039AC42 /* RGMasterViewController.m */,
-				AB712B48175A8A860039AC42 /* RGDetailViewController.h */,
 				AB712B49175A8A860039AC42 /* RGDetailViewController.m */,
-				AB1F83AA176E582400CE3C6E /* RGItemsTVC.h */,
 				AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */,
 			);
 			name = VCs;
@@ -268,6 +264,7 @@
 		AB712B2A175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXGroup;
 			children = (
+				ABF6983317B700E4002B59E7 /* Includes */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
 				AB712B33175A8A850039AC42 /* RGAppDelegate.h */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
@@ -414,6 +411,17 @@
 				ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */,
 			);
 			path = RSSSamples;
+			sourceTree = "<group>";
+		};
+		ABF6983317B700E4002B59E7 /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				AB1F83A6176E509B00CE3C6E /* RGBaseTVC.h */,
+				AB712B45175A8A860039AC42 /* RGMasterViewController.h */,
+				AB712B48175A8A860039AC42 /* RGDetailViewController.h */,
+				AB1F83AA176E582400CE3C6E /* RGItemsTVC.h */,
+			);
+			name = Includes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -31,31 +31,37 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - RGBaseFRCProtocol - Fetched results controller & Table View
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.detailItem = object;
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//        self.detailViewController.detailItem = object;
+//    }
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     }
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        RGChannel *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-//        NSAssert([object isKindOfClass:[RGChannel class]], @"wrong class");
-//        
-//        RGItemsTVC *destinationVC = [segue destinationViewController];
-//        NSAssert([destinationVC isKindOfClass:[RGItemsTVC class]], @"wrong class");
-//        [destinationVC setChannel:object];
-    }
+    //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    //        RGChannel *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //        NSAssert([object isKindOfClass:[RGChannel class]], @"wrong class");
+    //
+    //        RGItemsTVC *destinationVC = [segue destinationViewController];
+    //        NSAssert([destinationVC isKindOfClass:[RGItemsTVC class]], @"wrong class");
+    //        [destinationVC setChannel:object];
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark - Class specific FRC setup
+
+- (NSPredicate *)predicate {
+    return [NSPredicate predicateWithFormat:@"SELF IN %@", _channel.items];
+}
+
 
 - (NSArray *)sortDescriptors {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pubDate" ascending:NO];
@@ -83,8 +89,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
     [super awakeFromNib];
-    
 }
+
 
 - (void)viewDidLoad
 {

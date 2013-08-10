@@ -36,9 +36,12 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"pubDate"] description];
+        self.detailDescriptionLabel.text = [[_detailItem valueForKey:@"title"] description];
     }
+    
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[_detailItem valueForKey:@"guid"]]]];
 }
+
 
 - (void)viewDidLoad
 {
