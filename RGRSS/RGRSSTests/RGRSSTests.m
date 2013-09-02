@@ -8,7 +8,7 @@
 
 #import "RGRSSTests.h"
 //#import <BlockRSSParser/RSSParser.h>
-#import <FeedParser.h>
+#import "FeedParser.h"
 #import "FPParser.h"
 #import "RGChannel.h"
 #import "RGItem.h"
