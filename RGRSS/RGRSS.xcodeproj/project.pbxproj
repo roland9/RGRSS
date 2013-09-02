@@ -221,8 +221,8 @@
 			children = (
 				AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */,
 				AB712B46175A8A860039AC42 /* RGMasterViewController.m */,
-				AB712B49175A8A860039AC42 /* RGDetailViewController.m */,
 				AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */,
+				AB712B49175A8A860039AC42 /* RGDetailViewController.m */,
 			);
 			name = VCs;
 			sourceTree = "<group>";

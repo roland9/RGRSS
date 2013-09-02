@@ -33,23 +33,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <rect key="frame" x="20" y="376" width="663" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="20" y="72" width="663" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewe-m8-vEN">
-                                <rect key="frame" x="0.0" y="63" width="703" height="705"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewe-m8-vEN">
+                                <rect key="frame" x="0.0" y="96" width="703" height="672"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" id="CON-Cb-dBe"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="26" secondAttribute="leading" constant="20" symbolic="YES" id="LAk-gc-aCl"/>
-                            <constraint firstItem="27" firstAttribute="centerY" secondItem="26" secondAttribute="centerY" id="fbb-bQ-YI1"/>
+                            <constraint firstItem="27" firstAttribute="leading" secondItem="26" secondAttribute="leading" constant="20" id="6oc-yb-wdv"/>
+                            <constraint firstItem="Ewe-m8-vEN" firstAttribute="leading" secondItem="26" secondAttribute="leading" id="A5B-Xi-oFc"/>
+                            <constraint firstItem="DyR-kt-Rnj" firstAttribute="top" secondItem="Ewe-m8-vEN" secondAttribute="bottom" id="NH7-jI-WZX"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="pQL-dJ-roQ" secondAttribute="bottom" constant="8" id="Of4-Fr-pFh"/>
+                            <constraint firstAttribute="trailing" secondItem="Ewe-m8-vEN" secondAttribute="trailing" id="WDd-Ob-lGK"/>
+                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" id="WTB-aM-Wsk"/>
+                            <constraint firstItem="Ewe-m8-vEN" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="7" id="rzZ-fr-9Ut"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
