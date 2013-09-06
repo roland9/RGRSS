@@ -13,6 +13,7 @@
 #import "FPFeed.h"
 #import "RGChannel.h"
 #import "RGItemsTVC.h"
+#import "RGFeedManager.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -119,6 +120,23 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     
     [self initDataSample:@"rss2sample.xml" type:@"rss"];
     [self initDataSample:@"spiegelIndex" type:@"rss"];
+    
+//    [self createDummyChannel];
+    [[RGFeedManager sharedRGFeedManager] reloadAllChannels];
+}
+
+
+- (void)createDummyChannel {
+    RGChannel *newChannel = [RGChannel MR_createInContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+
+    newChannel.feedDescription = @"dummy channel";
+    newChannel.language = @"English (IE)";
+    newChannel.lastBuildDate = [NSDate date];
+    newChannel.link = @"http://www.spiegel.de/schlagzeilen/tops/index.rss";
+    newChannel.pubDate = [NSDate date];
+    newChannel.title = @"My Dummy Channel";
+    
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
 }
 
 
