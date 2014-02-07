@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class RGChannel;
+
+
 @interface RGFeedManager : NSObject <NSXMLParserDelegate>
 
+@property (nonatomic, readonly, strong) NSArray *responseEntries;
+
 - (void)reloadAllChannels;
+- (void)reloadChannel:(RGChannel *)channel;
+- (void)loadURL:(NSURL *)theURL;
+
 
 + (id)sharedRGFeedManager;
 

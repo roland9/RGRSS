@@ -20,6 +20,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 #endif
 
 
+@interface RGFeedManager()
+@end
+
+
 @implementation RGFeedManager
 
 ////////////////////////////////////////////////////////////////////
@@ -75,6 +79,55 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self reloadChannel:channel];
     }];
 }
+
+
+- (void)loadURL:(NSURL *)theURL {
+    DDLogInfo(@"%s: url=%@", __FUNCTION__, [theURL description]);
+
+    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+
+        if (!error) {
+            NSAssert([responseObject isKindOfClass:[NSData class]], @"inconsistent");
+            NSData *data = (NSData *)responseObject;
+            NSError *errorParsing;
+            
+            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParsing];
+            NSArray *entries = json[@"feed"][@"entry"];
+            NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
+            NSMutableArray __block *itemEntries = [NSMutableArray array];
+            
+            [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+                NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
+                NSDictionary *itemDict = @{@"itemId": dict[@"gsx$itemid"][@"$t"],
+                                           @"parentId": dict[@"gsx$parentid"][@"$t"],
+                                           @"description": dict[@"gsx$description"][@"$t"]
+                                           };
+                                           
+                [itemEntries addObject:itemDict];
+            }];
+
+            DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
+
+            self.responseEntries = [NSArray arrayWithArray:itemEntries];
+            
+        } else
+            self.responseEntries = nil;
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        self.responseEntries = nil;
+
+    }];
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark - Setter
+
+- (void)setResponseEntries:(NSArray *)responseEntries {
+    _responseEntries = responseEntries;
+}
+
 
 
 + (id)sharedRGFeedManager
