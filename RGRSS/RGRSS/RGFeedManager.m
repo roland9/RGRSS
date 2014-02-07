@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "FPFeed.h"
 #import "FPParser.h"
+#import "RGObject.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -99,12 +100,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             
             [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
                 NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
-                NSDictionary *itemDict = @{@"itemId": dict[@"gsx$itemid"][@"$t"],
-                                           @"parentId": dict[@"gsx$parentid"][@"$t"],
-                                           @"description": dict[@"gsx$description"][@"$t"]
-                                           };
-                                           
-                [itemEntries addObject:itemDict];
+                
+                RGObject *item = [[RGObject alloc] init];
+                item.itemId = dict[@"gsx$itemid"][@"$t"];
+                item.parentId = dict[@"gsx$parentid"][@"$t"];
+                item.itemDescription = dict[@"gsx$description"][@"$t"];
+                
+                [itemEntries addObject:item];
             }];
 
             DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
@@ -119,6 +121,55 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
     }];
 }
+
+
+- (void)createTestEnvironment {
+    DDLogInfo(@"%s", __FUNCTION__);
+
+    [self initDataSample:@"rss2sample.xml" type:@"rss"];
+    [self initDataSample:@"spiegelIndex" type:@"rss"];
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark - Private
+
+
+- (void)initDataSample:(NSString *)fileName type:(NSString *)type
+{
+    NSString *inputFile = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
+    NSAssert(inputFile, @"could not find RSS input file");
+    //    NSInputStream *inputStream = [[NSInputStream alloc] initWithFileAtPath:inputFile];
+    NSData *inputData = [NSData dataWithContentsOfFile:inputFile];
+    
+    NSError *error = nil;
+    FPFeed *feed = [FPParser parsedFeedWithData:inputData error:&error];
+    
+    NSAssert(feed, @"feed empty");
+    
+    __block RGChannel *appFeed = nil;
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        NSString *feedTitle = [feed title];
+        appFeed = [RGChannel feedWithName:feedTitle inContext:localContext];
+        [appFeed MR_importValuesForKeysWithObject:feed];
+        
+    }];
+}
+
+
+//- (void)createDummyChannel {
+//    RGChannel *newChannel = [RGChannel MR_createInContext:[NSManagedObjectContext MR_contextForCurrentThread]];
+//
+//    newChannel.feedDescription = @"dummy channel";
+//    newChannel.language = @"English (IE)";
+//    newChannel.lastBuildDate = [NSDate date];
+//    newChannel.link = @"http://www.spiegel.de/schlagzeilen/tops/index.rss";
+//    newChannel.pubDate = [NSDate date];
+//    newChannel.title = @"My Dummy Channel";
+//
+//    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+//}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////

@@ -18,7 +18,7 @@
 - (void)reloadAllChannels;
 - (void)reloadChannel:(RGChannel *)channel;
 - (void)loadURL:(NSURL *)theURL;
-
+- (void)createTestEnvironment;
 
 + (id)sharedRGFeedManager;
 

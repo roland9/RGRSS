@@ -1,5 +1,6 @@
 #import "Kiwi.h"
 #import "RGFeedManager.h"
+#import "RGObject.h"
 
 
 SPEC_BEGIN(SpreadsheetTests)
@@ -14,22 +15,24 @@ describe(@"Loading Spreadsheet", ^{
     
     it(@"data loaded", ^{
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)] haveCountOf:41];
-        
+
+        RGObject *obj1 = [[RGObject alloc] init];
+        obj1.itemId = @"1";
+        obj1.parentId = @"0";
+        obj1.itemDescription = @"Asia";
+
+        RGObject *obj2 = [[RGObject alloc] init];
+        obj2.itemId = @"10";
+        obj2.parentId = @"1";
+        obj2.itemDescription = @"Indonesia";
+
+        RGObject *obj3 = [[RGObject alloc] init];
+        obj3.itemId = @"41";
+        obj3.parentId = @"6";
+        obj3.itemDescription = @"Kenya";
+
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
-         containObjectsInArray:@[
-                                 @{@"itemId": @"1",
-                                   @"parentId": @"0",
-                                   @"description": @"Asia"
-                                   },
-                                 @{@"itemId": @"10",
-                                   @"parentId": @"1",
-                                   @"description": @"Indonesia"
-                                   },
-                                 @{@"itemId": @"41",
-                                   @"parentId": @"6",
-                                   @"description": @"Kenya"
-                                   }
-                                 ]];
+         containObjectsInArray:@[obj1, obj2, obj3]];
         
     });
 });
