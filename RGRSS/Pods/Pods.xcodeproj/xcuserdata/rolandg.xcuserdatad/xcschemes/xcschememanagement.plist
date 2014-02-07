@@ -4,20 +4,166 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-BlockRSSParser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Pods-MSNavigationPaneViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Pods-MagicalRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-NullSafe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Pods-PRTween.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>Pods-PonyDebugger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Pods-RGRSSTestsXC-Kiwi.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+		<key>Pods-SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>Pods-TSMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>140B96BA1D99401B82A6F267</key>
+		<key>187AF1D5ED0F4C479E47A873</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50D5738D0BFE46088A9F9265</key>
+		<key>315B3FC6FE5045C78F8E821B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3EFA4606D9124611AB88600A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63F9D76261884494953ED476</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70FA40D407E0404F9E63D529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76AB1A8085274340A8EC392F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>770268E353574F41A822F674</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ABFD9F7C9467404CA8C25861</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACFFB6C61922438A996D7F76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4FFA70DB5E74669829B9681</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA7EEAB5B96B40FDA133F800</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3AEB2C464C241ECB93A4DC4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFFC2FAB933F4724847C75F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA5EB5A46B5143F4A919AA88</key>
 		<dict>
 			<key>primary</key>
 			<true/>

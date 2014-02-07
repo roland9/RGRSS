@@ -9,3 +9,7 @@ pod 'MBProgressHUD'
 pod 'PonyDebugger'
 pod 'TSMessages'
 pod 'BlockRSSParser'
+
+target :RGRSSTestsXC, :exclusive => true do
+	pod 'Kiwi/XCTest'
+end

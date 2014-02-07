@@ -27,6 +27,10 @@
 		AB1F83AD176E582500CE3C6E /* RGItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */; };
 		AB43433518A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
 		AB43433618A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
+		AB4639B218A561360081E912 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4639B118A561360081E912 /* XCTest.framework */; };
+		AB4639B318A561360081E912 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
+		AB4639B418A561360081E912 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
+		AB4639BA18A561360081E912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB4639B818A561360081E912 /* InfoPlist.strings */; };
 		AB712B23175A8A850039AC42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
 		AB712B25175A8A850039AC42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
 		AB712B27175A8A850039AC42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B26175A8A850039AC42 /* CoreGraphics.framework */; };
@@ -92,12 +96,21 @@
 		AB73504F175B77010006E22D /* RGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AB73503F175B77010006E22D /* RGLink.m */; };
 		ABB09311175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
 		ABB09312175A9B4E00D58E2B /* rss2sample.xml.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */; };
+		ABD88E3718A5641700E97B61 /* RGSampleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD88E3618A5641700E97B61 /* RGSampleSpec.m */; };
 		ABF6983117B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
 		ABF6983217B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
 		C1141842B8B04714ADDC6535 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896FDD43BD36420FA5C52546 /* libPods.a */; };
+		EDF88A450A11430697EEEC8B /* libPods-RGRSSTestsXC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885D7503646F4522BE991822 /* libPods-RGRSSTestsXC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AB4639BE18A561360081E912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB712B17175A8A850039AC42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB712B1E175A8A850039AC42;
+			remoteInfo = RGRSS;
+		};
 		AB712B56175A8A860039AC42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB712B17175A8A850039AC42 /* Project object */;
@@ -108,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		885D7503646F4522BE991822 /* libPods-RGRSSTestsXC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RGRSSTestsXC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		896FDD43BD36420FA5C52546 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1F83A6176E509B00CE3C6E /* RGBaseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBaseTVC.h; sourceTree = "<group>"; };
 		AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBaseTVC.m; sourceTree = "<group>"; };
@@ -115,6 +129,11 @@
 		AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItemsTVC.m; sourceTree = "<group>"; };
 		AB43433318A5587E00D7E7E7 /* RGFeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFeedManager.h; sourceTree = "<group>"; };
 		AB43433418A5587E00D7E7E7 /* RGFeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGFeedManager.m; sourceTree = "<group>"; };
+		AB4639B018A561360081E912 /* RGRSSTestsXC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGRSSTestsXC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4639B118A561360081E912 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AB4639B718A561360081E912 /* RGRSSTestsXC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RGRSSTestsXC-Info.plist"; sourceTree = "<group>"; };
+		AB4639B918A561360081E912 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB4639BD18A561360081E912 /* RGRSSTestsXC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RGRSSTestsXC-Prefix.pch"; sourceTree = "<group>"; };
 		AB712B1F175A8A850039AC42 /* RGRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB712B22175A8A850039AC42 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB712B24175A8A850039AC42 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,11 +208,24 @@
 		AB73503E175B77010006E22D /* RGLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGLink.h; sourceTree = "<group>"; };
 		AB73503F175B77010006E22D /* RGLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGLink.m; sourceTree = "<group>"; };
 		ABB09310175A9B4E00D58E2B /* rss2sample.xml.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rss2sample.xml.rss; sourceTree = "<group>"; };
+		ABD88E3618A5641700E97B61 /* RGSampleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSampleSpec.m; sourceTree = "<group>"; };
 		ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spiegelIndex.rss; sourceTree = "<group>"; };
+		E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGRSSTestsXC.xcconfig"; path = "Pods/Pods-RGRSSTestsXC.xcconfig"; sourceTree = "<group>"; };
 		FAF87759D20D4E1C8398E139 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB4639AD18A561360081E912 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4639B218A561360081E912 /* XCTest.framework in Frameworks */,
+				AB4639B418A561360081E912 /* UIKit.framework in Frameworks */,
+				AB4639B318A561360081E912 /* Foundation.framework in Frameworks */,
+				EDF88A450A11430697EEEC8B /* libPods-RGRSSTestsXC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB712B1C175A8A850039AC42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,15 +263,36 @@
 			name = VCs;
 			sourceTree = "<group>";
 		};
+		AB4639B518A561360081E912 /* RGRSSTestsXC */ = {
+			isa = PBXGroup;
+			children = (
+				ABD88E3618A5641700E97B61 /* RGSampleSpec.m */,
+				AB4639B618A561360081E912 /* Supporting Files */,
+			);
+			path = RGRSSTestsXC;
+			sourceTree = "<group>";
+		};
+		AB4639B618A561360081E912 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB4639B718A561360081E912 /* RGRSSTestsXC-Info.plist */,
+				AB4639B818A561360081E912 /* InfoPlist.strings */,
+				AB4639BD18A561360081E912 /* RGRSSTestsXC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		AB712B16175A8A850039AC42 = {
 			isa = PBXGroup;
 			children = (
 				AB712B2A175A8A850039AC42 /* RGRSS */,
 				AB730923175AA281006BC71C /* Vendor */,
 				AB712B58175A8A860039AC42 /* RGRSSTests */,
+				AB4639B518A561360081E912 /* RGRSSTestsXC */,
 				AB712B21175A8A850039AC42 /* Frameworks */,
 				AB712B20175A8A850039AC42 /* Products */,
 				FAF87759D20D4E1C8398E139 /* Pods.xcconfig */,
+				E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +301,7 @@
 			children = (
 				AB712B1F175A8A850039AC42 /* RGRSS.app */,
 				AB712B50175A8A860039AC42 /* RGRSSTests.octest */,
+				AB4639B018A561360081E912 /* RGRSSTestsXC.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +315,8 @@
 				AB712B28175A8A850039AC42 /* CoreData.framework */,
 				AB712B51175A8A860039AC42 /* SenTestingKit.framework */,
 				896FDD43BD36420FA5C52546 /* libPods.a */,
+				AB4639B118A561360081E912 /* XCTest.framework */,
+				885D7503646F4522BE991822 /* libPods-RGRSSTestsXC.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -433,6 +489,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB4639AF18A561360081E912 /* RGRSSTestsXC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB4639C218A561360081E912 /* Build configuration list for PBXNativeTarget "RGRSSTestsXC" */;
+			buildPhases = (
+				13C8E1B187544148BDC58598 /* Check Pods Manifest.lock */,
+				AB4639AC18A561360081E912 /* Sources */,
+				AB4639AD18A561360081E912 /* Frameworks */,
+				AB4639AE18A561360081E912 /* Resources */,
+				2A94D9578D294EEDA7F504C1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB4639BF18A561360081E912 /* PBXTargetDependency */,
+			);
+			name = RGRSSTestsXC;
+			productName = RGRSSTestsXC;
+			productReference = AB4639B018A561360081E912 /* RGRSSTestsXC.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AB712B1E175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB712B63175A8A860039AC42 /* Build configuration list for PBXNativeTarget "RGRSS" */;
@@ -480,6 +556,11 @@
 				CLASSPREFIX = RG;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = RG;
+				TargetAttributes = {
+					AB4639AF18A561360081E912 = {
+						TestTargetID = AB712B1E175A8A850039AC42;
+					};
+				};
 			};
 			buildConfigurationList = AB712B1A175A8A850039AC42 /* Build configuration list for PBXProject "RGRSS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,12 +576,21 @@
 			targets = (
 				AB712B1E175A8A850039AC42 /* RGRSS */,
 				AB712B4F175A8A860039AC42 /* RGRSSTests */,
+				AB4639AF18A561360081E912 /* RGRSSTestsXC */,
 				AB73502B175B76040006E22D /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB4639AE18A561360081E912 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4639BA18A561360081E912 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB712B1D175A8A850039AC42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,6 +619,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13C8E1B187544148BDC58598 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		21A0F9BADEFF4B7C975E2DC9 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,6 +647,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		2A94D9578D294EEDA7F504C1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-RGRSSTestsXC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		AB712B4E175A8A860039AC42 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -586,6 +706,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB4639AC18A561360081E912 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABD88E3718A5641700E97B61 /* RGSampleSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AB712B1B175A8A850039AC42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,6 +785,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AB4639BF18A561360081E912 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB712B1E175A8A850039AC42 /* RGRSS */;
+			targetProxy = AB4639BE18A561360081E912 /* PBXContainerItemProxy */;
+		};
 		AB712B57175A8A860039AC42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AB712B1E175A8A850039AC42 /* RGRSS */;
@@ -665,6 +798,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AB4639B818A561360081E912 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4639B918A561360081E912 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		AB712B2D175A8A850039AC42 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -700,6 +841,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB4639C018A561360081E912 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RGRSS.app/RGRSS";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RGRSSTestsXC/RGRSSTestsXC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "RGRSSTestsXC/RGRSSTestsXC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AB4639C118A561360081E912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RGRSS.app/RGRSS";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RGRSSTestsXC/RGRSSTestsXC-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "RGRSSTestsXC/RGRSSTestsXC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		AB712B61175A8A860039AC42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -834,6 +1038,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB4639C218A561360081E912 /* Build configuration list for PBXNativeTarget "RGRSSTestsXC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB4639C018A561360081E912 /* Debug */,
+				AB4639C118A561360081E912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AB712B1A175A8A850039AC42 /* Build configuration list for PBXProject "RGRSS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

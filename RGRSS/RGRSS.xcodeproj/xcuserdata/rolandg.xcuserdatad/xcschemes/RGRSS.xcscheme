@@ -38,6 +38,16 @@
                ReferencedContainer = "container:RGRSS.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AB4639AF18A561360081E912"
+               BuildableName = "RGRSSTestsXC.xctest"
+               BlueprintName = "RGRSSTestsXC"
+               ReferencedContainer = "container:RGRSS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
