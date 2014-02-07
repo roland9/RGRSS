@@ -25,6 +25,8 @@
 		AB1F83A9176E509B00CE3C6E /* RGBaseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */; };
 		AB1F83AC176E582500CE3C6E /* RGItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */; };
 		AB1F83AD176E582500CE3C6E /* RGItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */; };
+		AB43433518A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
+		AB43433618A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
 		AB712B23175A8A850039AC42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
 		AB712B25175A8A850039AC42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
 		AB712B27175A8A850039AC42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B26175A8A850039AC42 /* CoreGraphics.framework */; };
@@ -111,6 +113,8 @@
 		AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBaseTVC.m; sourceTree = "<group>"; };
 		AB1F83AA176E582400CE3C6E /* RGItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGItemsTVC.h; sourceTree = "<group>"; };
 		AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItemsTVC.m; sourceTree = "<group>"; };
+		AB43433318A5587E00D7E7E7 /* RGFeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFeedManager.h; sourceTree = "<group>"; };
+		AB43433418A5587E00D7E7E7 /* RGFeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGFeedManager.m; sourceTree = "<group>"; };
 		AB712B1F175A8A850039AC42 /* RGRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB712B22175A8A850039AC42 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB712B24175A8A850039AC42 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -266,10 +270,10 @@
 			children = (
 				ABF6983317B700E4002B59E7 /* Includes */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
-				AB712B33175A8A850039AC42 /* RGAppDelegate.h */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
 				AB712B3C175A8A860039AC42 /* MainStoryboard_iPhone.storyboard */,
 				AB712B3F175A8A860039AC42 /* MainStoryboard_iPad.storyboard */,
+				AB43433418A5587E00D7E7E7 /* RGFeedManager.m */,
 				AB1F83A5176E507B00CE3C6E /* VCs */,
 				ABB0930F175A9B4E00D58E2B /* RSSSamples */,
 				AB712B42175A8A860039AC42 /* RGRSS.xcdatamodeld */,
@@ -416,6 +420,8 @@
 		ABF6983317B700E4002B59E7 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				AB712B33175A8A850039AC42 /* RGAppDelegate.h */,
+				AB43433318A5587E00D7E7E7 /* RGFeedManager.h */,
 				AB1F83A6176E509B00CE3C6E /* RGBaseTVC.h */,
 				AB712B45175A8A860039AC42 /* RGMasterViewController.h */,
 				AB712B48175A8A860039AC42 /* RGDetailViewController.h */,
@@ -587,6 +593,7 @@
 				AB712B31175A8A850039AC42 /* main.m in Sources */,
 				AB712B35175A8A850039AC42 /* RGAppDelegate.m in Sources */,
 				AB712B44175A8A860039AC42 /* RGRSS.xcdatamodeld in Sources */,
+				AB43433518A5587E00D7E7E7 /* RGFeedManager.m in Sources */,
 				AB712B47175A8A860039AC42 /* RGMasterViewController.m in Sources */,
 				AB712B4A175A8A860039AC42 /* RGDetailViewController.m in Sources */,
 				AB730946175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */,
@@ -641,6 +648,7 @@
 				AB73504B175B77010006E22D /* RGChannel.m in Sources */,
 				AB73504D175B77010006E22D /* RGItem.m in Sources */,
 				AB73504F175B77010006E22D /* RGLink.m in Sources */,
+				AB43433618A5587E00D7E7E7 /* RGFeedManager.m in Sources */,
 				AB1F83A9176E509B00CE3C6E /* RGBaseTVC.m in Sources */,
 				AB1F83AD176E582500CE3C6E /* RGItemsTVC.m in Sources */,
 			);
