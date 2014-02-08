@@ -18,19 +18,29 @@
 - (void)configureForItem:(RGObject *)item
 {
     self.itemTitleLabel.text = item.itemDescription;
-//    self.itemDateLabel.text = [self.dateFormatter stringFromDate:item.creationDate];
+    
+    if ([item.numberOfSubentries integerValue] > 0) {
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+        self.subentriesLabel.text = item.numberOfSubentries;
+    } else {
+        self.accessoryType = UITableViewCellAccessoryNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.subentriesLabel.text = @"";
+    }
 }
 
-- (NSDateFormatter *)dateFormatter
-{
-    static NSDateFormatter *dateFormatter;
-    if (!dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    }
-    return dateFormatter;
-}
+
+//- (NSDateFormatter *)dateFormatter
+//{
+//    static NSDateFormatter *dateFormatter;
+//    if (!dateFormatter) {
+//        dateFormatter = [[NSDateFormatter alloc] init];
+//        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+//        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+//    }
+//    return dateFormatter;
+//}
 
 
 @end

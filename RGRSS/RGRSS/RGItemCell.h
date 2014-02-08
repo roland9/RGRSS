@@ -13,6 +13,6 @@
 + (UINib *)nib;
 
 @property (weak, nonatomic) IBOutlet UILabel *itemTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *itemDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subentriesLabel;
 
 @end

@@ -13,5 +13,6 @@
 @property (nonatomic, copy) NSString *itemId;
 @property (nonatomic, copy) NSString *parentId;
 @property (nonatomic, copy) NSString *itemDescription;
+@property (nonatomic, copy) NSString *numberOfSubentries;
 
 @end

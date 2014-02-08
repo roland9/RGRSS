@@ -14,7 +14,7 @@ describe(@"Loading Spreadsheet", ^{
     });
     
     it(@"data loaded", ^{
-        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)] haveCountOf:41];
+        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)] haveCountOf:53];
 
         RGObject *obj1 = [[RGObject alloc] init];
         obj1.itemId = @"1";
@@ -31,8 +31,13 @@ describe(@"Loading Spreadsheet", ^{
         obj3.parentId = @"6";
         obj3.itemDescription = @"Kenya";
 
+        RGObject *obj4 = [[RGObject alloc] init];
+        obj4.itemId = @"44";
+        obj4.parentId = @"12";
+        obj4.itemDescription = @"Düsseldorf";
+
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
-         containObjectsInArray:@[obj1, obj2, obj3]];
+         containObjectsInArray:@[obj1, obj2, obj3, obj4]];
         
     });
 });

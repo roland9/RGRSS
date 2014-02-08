@@ -79,10 +79,15 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RGObject *obj = [self.itemsArrayDataSource itemAtIndexPath:indexPath];
+    if ([obj.numberOfSubentries isEqualToString:@"0"]) {
+        return;
+    }
+    
+    
     RGTableViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"RGTableViewController"];
     NSAssert([tvc isKindOfClass:[RGTableViewController class]], @"expected TVC");
 
-    RGObject *obj = [self.itemsArrayDataSource itemAtIndexPath:indexPath];
     [[RGDataManager sharedRGDataManager] setSelectedParentId:obj.itemId];
     [[RGDataManager sharedRGDataManager] increasedLevel];
     

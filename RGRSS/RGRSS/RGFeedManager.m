@@ -116,6 +116,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
                 [itemEntries addObject:item];
             }];
 
+            [self updateSubentries:itemEntries];
             DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
 
             self.responseEntries = [NSArray arrayWithArray:itemEntries];
@@ -140,6 +141,14 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Private
+
+- (void)updateSubentries:(NSMutableArray *)entries {
+
+    [entries enumerateObjectsUsingBlock:^(RGObject *obj, NSUInteger idx, BOOL *stop) {
+#warning optimize - check if been calculated before
+        obj.numberOfSubentries = [NSString stringWithFormat:@"%d", [[entries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", obj.itemId]] count]];
+    }];
+}
 
 
 - (void)initDataSample:(NSString *)fileName type:(NSString *)type
