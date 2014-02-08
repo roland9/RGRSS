@@ -51,7 +51,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         _selectedParentId = @"0";
         
         NSURL *url = [NSURL URLWithString:@"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json"];
-        [[RGFeedManager sharedRGFeedManager] loadURL:url];
+        [[RGFeedManager sharedRGFeedManager] loadDataURL:url];
+        
+        url = [NSURL URLWithString:@"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od7/public/values?alt=json"];
+        [[RGFeedManager sharedRGFeedManager] loadMetadataURL:url];
     }
     return self;
 }

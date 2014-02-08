@@ -10,7 +10,7 @@ describe(@"Loading Spreadsheet", ^{
     beforeAll(^{
         NSString *urlString = @"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json";
         NSURL *url = [NSURL URLWithString:urlString];
-        [[RGFeedManager sharedRGFeedManager] loadURL:url];
+        [[RGFeedManager sharedRGFeedManager] loadDataURL:url];
     });
     
     it(@"data loaded", ^{

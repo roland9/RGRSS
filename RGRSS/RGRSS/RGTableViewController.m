@@ -13,6 +13,7 @@
 #import "RGItemCell+ConfigureForItem.h"
 #import "RGDataManager.h"
 #import "RGObject.h"
+#import "RGMetadata.h"
 
 
 static NSString * const ItemCellIdentifier = @"ItemCell";
@@ -29,8 +30,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.navigationItem.title = @"Items";
+    
     [self setupTableView];
 }
 
@@ -42,10 +42,17 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     TableViewCellConfigureBlock configureCell = ^(RGItemCell *cell, RGObject *item) {
         [cell configureForItem:item];
     };
-    
+
     // kick off global setup & loading data - once
     self.level = [[RGDataManager sharedRGDataManager] currentLevel];
     self.parentId = [[RGDataManager sharedRGDataManager] selectedParentId];
+    
+    NSArray *allMetadata = [[[RGFeedManager sharedRGFeedManager] metadataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"level=%@", [NSString stringWithFormat:@"%d", self.level]]];
+    if ([allMetadata count] > 0) {
+        RGMetadata *metadata = (RGMetadata *)allMetadata[0];
+        self.navigationItem.title = metadata.myDescription;
+    } else
+        self.navigationItem.title = @"";
 
     if (self.level != 0) {
         NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
@@ -89,6 +96,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     NSAssert([tvc isKindOfClass:[RGTableViewController class]], @"expected TVC");
 
     [[RGDataManager sharedRGDataManager] setSelectedParentId:obj.itemId];
+#warning this is wrong - going back, it should be decreased again?!?
     [[RGDataManager sharedRGDataManager] increasedLevel];
     
 //    tvc.parentId = obj.itemId;

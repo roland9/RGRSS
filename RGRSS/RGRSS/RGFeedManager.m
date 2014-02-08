@@ -12,6 +12,7 @@
 #import "FPFeed.h"
 #import "FPParser.h"
 #import "RGObject.h"
+#import "RGMetadata.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -89,7 +90,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 
-- (void)loadURL:(NSURL *)theURL {
+- (void)loadDataURL:(NSURL *)theURL {
     DDLogInfo(@"%s: url=%@", __FUNCTION__, [theURL description]);
 
     [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -130,6 +131,45 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     }];
 }
 
+
+- (void)loadMetadataURL:(NSURL *)theURL {
+    DDLogInfo(@"%s: url=%@", __FUNCTION__, [theURL description]);
+    
+    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        
+        if (!error) {
+            NSAssert([responseObject isKindOfClass:[NSData class]], @"inconsistent");
+            NSData *data = (NSData *)responseObject;
+            NSError *errorParsing;
+            
+            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParsing];
+            NSArray *entries = json[@"feed"][@"entry"];
+            NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
+            NSMutableArray __block *itemEntries = [NSMutableArray array];
+            
+            [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+                NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
+                
+                RGMetadata *metadata = [[RGMetadata alloc] init];
+                metadata.level = dict[@"gsx$level"][@"$t"];
+                metadata.myDescription = dict[@"gsx$description"][@"$t"];
+                
+                [itemEntries addObject:metadata];
+            }];
+            
+            DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
+            
+            self.metadataEntries = [NSArray arrayWithArray:itemEntries];
+            
+        } else
+            self.metadataEntries = nil;
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        self.metadataEntries = nil;
+        
+    }];
+}
 
 - (void)createTestEnvironment {
     DDLogInfo(@"%s", __FUNCTION__);
@@ -195,6 +235,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     _responseEntries = responseEntries;
 }
 
+- (void)setMetadataEntries:(NSArray *)metadataEntries {
+    _metadataEntries = metadataEntries;
+}
 
 
 + (id)sharedRGFeedManager

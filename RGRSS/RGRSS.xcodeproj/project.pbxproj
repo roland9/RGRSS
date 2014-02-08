@@ -28,6 +28,9 @@
 		AB32A72518A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
 		AB32A72618A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
 		AB32A72718A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
+		AB32A72A18A6F5E00075BE80 /* RGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGMetadata.m */; };
+		AB32A72B18A6F5E00075BE80 /* RGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGMetadata.m */; };
+		AB32A72C18A6F5E00075BE80 /* RGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGMetadata.m */; };
 		AB43433518A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
 		AB43433618A5587E00D7E7E7 /* RGFeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43433418A5587E00D7E7E7 /* RGFeedManager.m */; };
 		AB4639B218A561360081E912 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4639B118A561360081E912 /* XCTest.framework */; };
@@ -150,6 +153,8 @@
 		AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItemsTVC.m; sourceTree = "<group>"; };
 		AB32A72318A6E6440075BE80 /* RGDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDataManager.h; sourceTree = "<group>"; };
 		AB32A72418A6E6440075BE80 /* RGDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDataManager.m; sourceTree = "<group>"; };
+		AB32A72818A6F5E00075BE80 /* RGMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGMetadata.h; sourceTree = "<group>"; };
+		AB32A72918A6F5E00075BE80 /* RGMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGMetadata.m; sourceTree = "<group>"; };
 		AB43433318A5587E00D7E7E7 /* RGFeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFeedManager.h; sourceTree = "<group>"; };
 		AB43433418A5587E00D7E7E7 /* RGFeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGFeedManager.m; sourceTree = "<group>"; };
 		AB4639B018A561360081E912 /* RGRSSTestsXC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RGRSSTestsXC.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,6 +384,7 @@
 				AB32A72418A6E6440075BE80 /* RGDataManager.m */,
 				ABCF378018A5979B0061768B /* RGArrayDataSource.m */,
 				ABCF378F18A59D120061768B /* RGObject.m */,
+				AB32A72918A6F5E00075BE80 /* RGMetadata.m */,
 				AB32A72218A6E50B0075BE80 /* Cells */,
 				AB1F83A5176E507B00CE3C6E /* VCs */,
 				ABB0930F175A9B4E00D58E2B /* RSSSamples */,
@@ -526,6 +532,7 @@
 		ABF6983317B700E4002B59E7 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				AB32A72818A6F5E00075BE80 /* RGMetadata.h */,
 				AB32A72318A6E6440075BE80 /* RGDataManager.h */,
 				ABCF377F18A5979B0061768B /* RGArrayDataSource.h */,
 				ABCF378418A598370061768B /* RGTableViewController.h */,
@@ -769,6 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABCF379218A59D120061768B /* RGObject.m in Sources */,
+				AB32A72C18A6F5E00075BE80 /* RGMetadata.m in Sources */,
 				ABCF379C18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */,
 				ABD88E3718A5641700E97B61 /* RGSampleSpec.m in Sources */,
 				ABCF378318A5979B0061768B /* RGArrayDataSource.m in Sources */,
@@ -799,6 +807,7 @@
 				ABCF378618A598370061768B /* RGTableViewController.m in Sources */,
 				AB730952175AA281006BC71C /* FPLink.m in Sources */,
 				ABCF378B18A599930061768B /* RGItemCell.m in Sources */,
+				AB32A72A18A6F5E00075BE80 /* RGMetadata.m in Sources */,
 				AB730954175AA281006BC71C /* FPParser.m in Sources */,
 				AB730956175AA281006BC71C /* FPXMLPair.m in Sources */,
 				AB730958175AA281006BC71C /* FPXMLParser.m in Sources */,
@@ -825,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB712B60175A8A860039AC42 /* RGRSSTests.m in Sources */,
+				AB32A72B18A6F5E00075BE80 /* RGMetadata.m in Sources */,
 				AB730947175AA281006BC71C /* NSDate_FeedParserExtensions.m in Sources */,
 				AB730949175AA281006BC71C /* NSString_extensions.m in Sources */,
 				AB73094B175AA281006BC71C /* FPCategory.m in Sources */,

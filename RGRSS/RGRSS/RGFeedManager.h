@@ -14,12 +14,15 @@
 @interface RGFeedManager : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic, readonly, strong) NSArray *responseEntries;
+@property (nonatomic, readonly, strong) NSArray *metadataEntries;
 
 - (NSArray *)itemsWithParentId:(NSString *)theParentId;
 
 - (void)reloadAllChannels;
 - (void)reloadChannel:(RGChannel *)channel;
-- (void)loadURL:(NSURL *)theURL;
+
+- (void)loadDataURL:(NSURL *)theURL;
+- (void)loadMetadataURL:(NSURL *)theURL;
 
 - (void)createTestEnvironment;
 
