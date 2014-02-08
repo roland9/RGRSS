@@ -10,4 +10,7 @@
 
 @interface RGTableViewController : UITableViewController
 
+@property (nonatomic, assign) NSUInteger level;
+@property (nonatomic, copy)   NSString   *parentId;
+
 @end

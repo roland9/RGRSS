@@ -44,6 +44,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 ////////////////////////////////////////////////////////////////////
 # pragma mark - Public
 
+- (NSArray *)itemsWithParentId:(NSString *)theParentId {
+    DDLogInfo(@"%s: parentId=%@", __FUNCTION__, theParentId);
+
+    return [self.responseEntries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", theParentId]];
+}
+
+
 - (void)reloadChannel:(RGChannel *)channel {
     DDLogInfo(@"%s", __FUNCTION__);
 

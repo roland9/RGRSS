@@ -11,6 +11,7 @@
 #import "RGFeedManager.h"
 #import "RGItemCell.h"
 #import "RGItemCell+ConfigureForItem.h"
+#import "RGDataManager.h"
 #import "RGObject.h"
 
 
@@ -29,10 +30,6 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSString *urlString = @"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json";
-    NSURL *url = [NSURL URLWithString:urlString];
-    [[RGFeedManager sharedRGFeedManager] loadURL:url];
-
     self.navigationItem.title = @"Items";
     [self setupTableView];
 }
@@ -46,11 +43,28 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
         [cell configureForItem:item];
     };
     
+    // kick off global setup & loading data - once
+    self.level = [[RGDataManager sharedRGDataManager] currentLevel];
+    self.parentId = [[RGDataManager sharedRGDataManager] selectedParentId];
+
+    if (self.level != 0) {
+        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
+        
+        self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
+                                                              cellIdentifier:ItemCellIdentifier
+                                                          configureCellBlock:configureCell];
+        self.tableView.dataSource = self.itemsArrayDataSource;
+        [self.tableView registerNib:[RGItemCell nib] forCellReuseIdentifier:ItemCellIdentifier];
+        [self.tableView reloadData];
+        return;
+    }
+    
+    
 #warning handle async setup
-    double delayInSeconds = 5.0;
+    double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSArray *items = [[RGFeedManager sharedRGFeedManager] responseEntries];
+        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
         
         self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
                                                               cellIdentifier:ItemCellIdentifier
@@ -65,10 +79,17 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    PhotoViewController *photoViewController = [[PhotoViewController alloc] initWithNibName:@"PhotoViewController"
-//                                                                                     bundle:nil];
-//    photoViewController.photo = [self.photosArrayDataSource itemAtIndexPath:indexPath];
-//    [self.navigationController pushViewController:photoViewController animated:YES];
+    RGTableViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"RGTableViewController"];
+    NSAssert([tvc isKindOfClass:[RGTableViewController class]], @"expected TVC");
+
+    RGObject *obj = [self.itemsArrayDataSource itemAtIndexPath:indexPath];
+    [[RGDataManager sharedRGDataManager] setSelectedParentId:obj.itemId];
+    [[RGDataManager sharedRGDataManager] increasedLevel];
+    
+//    tvc.parentId = obj.itemId;
+//    tvc.itemsArrayDataSource
+
+    [self.navigationController pushViewController:tvc animated:YES];
 }
 
 @end

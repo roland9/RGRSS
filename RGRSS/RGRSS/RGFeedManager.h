@@ -15,9 +15,12 @@
 
 @property (nonatomic, readonly, strong) NSArray *responseEntries;
 
+- (NSArray *)itemsWithParentId:(NSString *)theParentId;
+
 - (void)reloadAllChannels;
 - (void)reloadChannel:(RGChannel *)channel;
 - (void)loadURL:(NSURL *)theURL;
+
 - (void)createTestEnvironment;
 
 + (id)sharedRGFeedManager;
