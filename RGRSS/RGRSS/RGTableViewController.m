@@ -54,7 +54,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 
     self.navigationItem.title = myTitle;
 
-    if (self.parentId != 0) {
+    if (self.parentId) {
         NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
         
         self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
@@ -68,10 +68,14 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     
     
 #warning handle async setup
-    double delayInSeconds = 3.0;
+    
+    // kick off data loading
+    [RGDataManager sharedRGDataManager];
+     
+    double delayInSeconds = 5.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
+        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:@"0"];
         
         self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
                                                               cellIdentifier:ItemCellIdentifier

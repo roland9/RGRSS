@@ -25,11 +25,16 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFF-Ed-GHD">
+                        <rect key="frame" x="221" y="0.0" width="66" height="39"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="itemTitleLabel" destination="zri-Xg-LGv" id="upX-hg-lb8"/>
                 <outlet property="subentriesLabel" destination="yQO-vG-Q70" id="3Ih-pb-7Ao"/>
+                <outlet property="thumbnailImageView" destination="OFF-Ed-GHD" id="3tz-yg-ERr"/>
             </connections>
         </tableViewCell>
     </objects>

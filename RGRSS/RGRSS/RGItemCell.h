@@ -14,5 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *itemTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subentriesLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 
 @end

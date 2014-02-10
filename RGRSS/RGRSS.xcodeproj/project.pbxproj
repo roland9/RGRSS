@@ -306,6 +306,7 @@
 		AB32A72218A6E50B0075BE80 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */,
 				ABCF378A18A599930061768B /* RGItemCell.m */,
 				ABCF379D18A5A0EB0061768B /* RGItemCell.xib */,
 			);
@@ -373,8 +374,6 @@
 		AB712B2A175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXGroup;
 			children = (
-				ABCF379818A59E280061768B /* RGItemCell+ConfigureForItem.h */,
-				ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */,
 				ABF6983317B700E4002B59E7 /* Includes */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
@@ -532,6 +531,7 @@
 		ABF6983317B700E4002B59E7 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				ABCF379818A59E280061768B /* RGItemCell+ConfigureForItem.h */,
 				AB32A72818A6F5E00075BE80 /* RGConfigData.h */,
 				AB32A72318A6E6440075BE80 /* RGDataManager.h */,
 				ABCF377F18A5979B0061768B /* RGArrayDataSource.h */,
