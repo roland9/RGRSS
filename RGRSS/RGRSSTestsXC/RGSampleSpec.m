@@ -25,25 +25,35 @@ describe(@"Loading Spreadsheet", ^{
         obj1.imageThumbnail = @"";
         obj1.detailHTML = @"";
         
-//        RGObject *obj2 = [[RGObject alloc] init];
-//        obj2.itemId = @"10";
-//        obj2.parentId = @"1";
-//        obj2.itemDescription = @"Indonesia";
-//
-//        RGObject *obj3 = [[RGObject alloc] init];
-//        obj3.itemId = @"41";
-//        obj3.parentId = @"6";
-//        obj3.itemDescription = @"Kenya";
-//
-//        RGObject *obj4 = [[RGObject alloc] init];
-//        obj4.itemId = @"44";
-//        obj4.parentId = @"12";
-//        obj4.itemDescription = @"Düsseldorf";
+        RGObject *obj2 = [[RGObject alloc] init];
+        obj2.itemId = @"10";
+        obj2.parentId = @"1";
+        obj2.itemDescription = @"Indonesia";
+        obj2.nextLevel = @"City";
+        obj2.imageFull = @"";
+        obj2.imageThumbnail = @"";
+        obj2.detailHTML = @"";
+
+        RGObject *obj3 = [[RGObject alloc] init];
+        obj3.itemId = @"41";
+        obj3.parentId = @"6";
+        obj3.itemDescription = @"Kenya";
+        obj3.nextLevel = @"City";
+        obj3.imageFull = @"";
+        obj3.imageThumbnail = @"";
+        obj3.detailHTML = @"";
+
+        RGObject *obj4 = [[RGObject alloc] init];
+        obj4.itemId = @"47";
+        obj4.parentId = @"12";
+        obj4.itemDescription = @"Frankfurt am Main";
+        obj4.nextLevel = @"";
+        obj4.imageFull = @"";
+        obj4.imageThumbnail = @"";
+        obj4.detailHTML = @"Frankfurt detail HTML";
 
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
-         containObjectsInArray:@[obj1,
-//                                 obj2, obj3, obj4
-                                 ]];
+         containObjectsInArray:@[obj1, obj2, obj3, obj4]];
         
     });
 });
