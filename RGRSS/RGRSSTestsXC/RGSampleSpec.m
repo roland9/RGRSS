@@ -19,7 +19,7 @@ describe(@"Loading Spreadsheet", ^{
         obj1.itemId = @"1";
         obj1.parentId = @"0";
         obj1.itemDescription = @"Asia";
-        obj1.nextLevel = @"Country";
+        obj1.nextLevel = @"Countries";
         obj1.imageFull = @"";
         obj1.imageThumbnail = @"";
         obj1.detailHTML = @"";
@@ -28,7 +28,7 @@ describe(@"Loading Spreadsheet", ^{
         obj2.itemId = @"10";
         obj2.parentId = @"1";
         obj2.itemDescription = @"Indonesia";
-        obj2.nextLevel = @"City";
+        obj2.nextLevel = @"Cities";
         obj2.imageFull = @"";
         obj2.imageThumbnail = @"";
         obj2.detailHTML = @"";
@@ -37,7 +37,7 @@ describe(@"Loading Spreadsheet", ^{
         obj3.itemId = @"41";
         obj3.parentId = @"6";
         obj3.itemDescription = @"Kenya";
-        obj3.nextLevel = @"City";
+        obj3.nextLevel = @"Cities";
         obj3.imageFull = @"";
         obj3.imageThumbnail = @"";
         obj3.detailHTML = @"";
@@ -55,7 +55,7 @@ describe(@"Loading Spreadsheet", ^{
         obj5.itemId = @"7";
         obj5.parentId = @"1";
         obj5.itemDescription = @"China";
-        obj5.nextLevel = @"City";
+        obj5.nextLevel = @"Cities";
         obj5.imageFull = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1000px-Flag_of_the_People%27s_Republic_of_China.svg.png";
         obj5.imageThumbnail = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/200px-Flag_of_the_People%27s_Republic_of_China.svg.png";
         obj5.detailHTML = @"";
