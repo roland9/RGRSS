@@ -40,9 +40,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     self = [super init];
     if (self) {
         
-        [[RGFeedManager sharedRGFeedManager] loadDataURLString:@"0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json"];
+        [[RGFeedManager sharedRGFeedManager] loadDataURLString:@"0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od6/public/values?alt=json"];
         
-        [[RGFeedManager sharedRGFeedManager] loadMetadataURLString:@"0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od7/public/values?alt=json"];
+        [[RGFeedManager sharedRGFeedManager] loadConfigDataURLString:@"0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od7/public/values?alt=json"];
     }
     return self;
 }

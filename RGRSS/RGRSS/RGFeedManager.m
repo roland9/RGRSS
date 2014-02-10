@@ -49,7 +49,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (NSArray *)itemsWithParentId:(NSString *)theParentId {
     DDLogInfo(@"%s: parentId=%@", __FUNCTION__, theParentId);
 
-    return [self.responseEntries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", theParentId]];
+    return [self.dataEntries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", theParentId]];
 }
 
 
@@ -123,13 +123,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             [self updateSubentries:itemEntries];
             DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
             
-            self.responseEntries = [NSArray arrayWithArray:itemEntries];
+            self.dataEntries = [NSArray arrayWithArray:itemEntries];
             
         } else
-            self.responseEntries = nil;
+            self.dataEntries = nil;
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        self.responseEntries = nil;
+        self.dataEntries = nil;
         
     }];
 
@@ -140,7 +140,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 
-- (void)loadMetadataURLString:(NSString *)theURLString {
+- (void)loadConfigDataURLString:(NSString *)theURLString {
     DDLogInfo(@"%s: url=%@", __FUNCTION__, theURLString);
     
     [[RGHTTPSessionManager manager] GET:theURLString parameters:NULL success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -158,7 +158,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
                 NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
                 
                 RGConfigData *config = [[RGConfigData alloc] init];
-                config.configItem = dict[@"gsx$settings"][@"$t"];
+                config.configItem = dict[@"gsx$setting"][@"$t"];
                 config.configValue = dict[@"gsx$value"][@"$t"];
                 
                 [configEntries addObject:config];
@@ -166,13 +166,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             
             DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, configEntries);
             
-            self.metadataEntries = [NSArray arrayWithArray:configEntries];
+            self.configDataEntries = [NSArray arrayWithArray:configEntries];
             
         } else
-            self.metadataEntries = nil;
+            self.configDataEntries = nil;
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        self.metadataEntries = nil;
+        self.configDataEntries = nil;
         
     }];
 }
@@ -237,12 +237,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Setter
 
-- (void)setResponseEntries:(NSArray *)responseEntries {
-    _responseEntries = responseEntries;
+- (void)setDataEntries:(NSArray *)dataEntries {
+    _dataEntries = dataEntries;
 }
 
-- (void)setMetadataEntries:(NSArray *)metadataEntries {
-    _metadataEntries = metadataEntries;
+- (void)setConfigDataEntries:(NSArray *)configDataEntries {
+    _configDataEntries = configDataEntries;
 }
 
 

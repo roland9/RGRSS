@@ -47,13 +47,19 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
         [cell configureForItem:item];
     };
     
-    NSString *myTitle = self.levelDescription;
+    __block NSString *myTitle = self.levelDescription;
     
     // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
     if (!myTitle) {
-        NSArray *allConfigData = [[[RGFeedManager sharedRGFeedManager] metadataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"configItem=0"]];
-        if ([allConfigData count] > 0)
-            myTitle = ((RGConfigData *)allConfigData[0]).configValue;
+#warning handle async setup
+        double delayInSeconds = 5.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            NSArray *initialLevelConfig = [[[RGFeedManager sharedRGFeedManager] configDataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%K = %@", @"configItem", @"InitialLevel"]];
+                        if ([initialLevelConfig count] > 0)
+                myTitle = ((RGConfigData *)initialLevelConfig[0]).configValue;
+            self.navigationItem.title = myTitle;
+        });
     }
     
     self.navigationItem.title = myTitle;

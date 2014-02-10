@@ -8,12 +8,12 @@ SPEC_BEGIN(SpreadsheetTests)
 describe(@"Loading Spreadsheet", ^{
     
     beforeAll(^{
-        NSString *urlString = @"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json";
+        NSString *urlString = @"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od6/public/values?alt=json";
         [[RGFeedManager sharedRGFeedManager] loadDataURLString:urlString];
     });
     
     it(@"data loaded", ^{
-        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)] haveCountOf:53];
+        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] dataEntries]) shouldEventuallyBeforeTimingOutAfter(5)] haveCountOf:53];
 
         RGObject *obj1 = [[RGObject alloc] init];
         obj1.itemId = @"1";
@@ -60,7 +60,7 @@ describe(@"Loading Spreadsheet", ^{
         obj5.imageThumbnail = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/200px-Flag_of_the_People%27s_Republic_of_China.svg.png";
         obj5.detailHTML = @"";
         
-        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
+        [[expectFutureValue([[RGFeedManager sharedRGFeedManager] dataEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
          containObjectsInArray:@[obj1, obj2, obj3, obj4, obj5]];
         
     });
