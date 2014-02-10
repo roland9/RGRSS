@@ -23,6 +23,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 @interface RGTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) RGArrayDataSource *itemsArrayDataSource;
+@property (nonatomic, strong) RGDetailViewController *detailViewController;
 
 @end
 
@@ -32,6 +33,8 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.detailViewController = (RGDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
     [self setupTableView];
 }
 
@@ -109,14 +112,15 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
         // we don't have subentries, but we have detailHTML info -> show html in detailVC
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//            NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-//            [self.detailViewController setDetailItem:obj.detailHTML];
+
+            [self.detailViewController setDetailItem:@{@"title": obj.itemDescription, @"html": obj.detailHTML}];
+
         } else {
             
             RGDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RGDetailViewController"];
             NSAssert([detailVC isKindOfClass:[RGDetailViewController class]], @"inconsistent storyboard");
             
-            detailVC.detailItem = @{@"html": obj.detailHTML};
+            [detailVC setDetailItem:@{@"title": obj.itemDescription, @"html": obj.detailHTML}];
             [self.navigationController pushViewController:detailVC animated:YES];
         }
     }

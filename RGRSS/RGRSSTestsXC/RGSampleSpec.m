@@ -50,7 +50,7 @@ describe(@"Loading Spreadsheet", ^{
         obj4.nextLevel = @"";
         obj4.imageFull = @"";
         obj4.imageThumbnail = @"";
-        obj4.detailHTML = @"Frankfurt detail HTML";
+        obj4.detailHTML = @"<h1>Frankfurt detail HTML</h1>this is the body text";
 
         RGObject *obj5 = [[RGObject alloc] init];
         obj5.itemId = @"7";
