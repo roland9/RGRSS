@@ -1,13 +1,9 @@
 platform :ios, '7.0'
 
-pod 'AFNetworking', '~> 1.3.0'
+pod 'AFNetworking'
 pod 'MagicalRecord'
 pod 'CocoaLumberjack'
-pod 'MSNavigationPaneViewController'
 pod 'NullSafe'
-pod 'MBProgressHUD'
-pod 'PonyDebugger'
-pod 'TSMessages'
 pod 'BlockRSSParser'
 
 target :RGRSSTestsXC, :exclusive => true do

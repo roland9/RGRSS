@@ -21,8 +21,8 @@
 - (void)reloadAllChannels;
 - (void)reloadChannel:(RGChannel *)channel;
 
-- (void)loadDataURL:(NSURL *)theURL;
-- (void)loadMetadataURL:(NSURL *)theURL;
+- (void)loadDataURLString:(NSString *)theURLString;
+- (void)loadMetadataURLString:(NSString *)theURLString;
 
 - (void)createTestEnvironment;
 

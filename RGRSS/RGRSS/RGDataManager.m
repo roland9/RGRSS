@@ -40,11 +40,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     self = [super init];
     if (self) {
         
-        NSURL *url = [NSURL URLWithString:@"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json"];
-        [[RGFeedManager sharedRGFeedManager] loadDataURL:url];
+        [[RGFeedManager sharedRGFeedManager] loadDataURLString:@"0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json"];
         
-        url = [NSURL URLWithString:@"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od7/public/values?alt=json"];
-        [[RGFeedManager sharedRGFeedManager] loadMetadataURL:url];
+        [[RGFeedManager sharedRGFeedManager] loadMetadataURLString:@"0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od7/public/values?alt=json"];
     }
     return self;
 }

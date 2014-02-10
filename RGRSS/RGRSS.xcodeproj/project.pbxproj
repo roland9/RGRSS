@@ -121,6 +121,9 @@
 		ABCF379F18A5A0EB0061768B /* RGItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABCF379D18A5A0EB0061768B /* RGItemCell.xib */; };
 		ABCF37A018A5A0EB0061768B /* RGItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABCF379D18A5A0EB0061768B /* RGItemCell.xib */; };
 		ABD88E3718A5641700E97B61 /* RGSampleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD88E3618A5641700E97B61 /* RGSampleSpec.m */; };
+		ABEC2A2F18A953A700AF7945 /* RGHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */; };
+		ABEC2A3018A953A700AF7945 /* RGHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */; };
+		ABEC2A3118A953A700AF7945 /* RGHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */; };
 		ABF6983117B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
 		ABF6983217B6FF61002B59E7 /* spiegelIndex.rss in Resources */ = {isa = PBXBuildFile; fileRef = ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */; };
 		C1141842B8B04714ADDC6535 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 896FDD43BD36420FA5C52546 /* libPods.a */; };
@@ -248,6 +251,8 @@
 		ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RGItemCell+ConfigureForItem.m"; sourceTree = "<group>"; };
 		ABCF379D18A5A0EB0061768B /* RGItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGItemCell.xib; sourceTree = "<group>"; };
 		ABD88E3618A5641700E97B61 /* RGSampleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGSampleSpec.m; sourceTree = "<group>"; };
+		ABEC2A2D18A953A700AF7945 /* RGHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGHTTPSessionManager.h; sourceTree = "<group>"; };
+		ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGHTTPSessionManager.m; sourceTree = "<group>"; };
 		ABF6983017B6FF61002B59E7 /* spiegelIndex.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spiegelIndex.rss; sourceTree = "<group>"; };
 		E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RGRSSTestsXC.xcconfig"; path = "Pods/Pods-RGRSSTestsXC.xcconfig"; sourceTree = "<group>"; };
 		FAF87759D20D4E1C8398E139 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -374,6 +379,8 @@
 		AB712B2A175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXGroup;
 			children = (
+				ABEC2A2D18A953A700AF7945 /* RGHTTPSessionManager.h */,
+				ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */,
 				ABF6983317B700E4002B59E7 /* Includes */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
@@ -775,6 +782,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEC2A3118A953A700AF7945 /* RGHTTPSessionManager.m in Sources */,
 				ABCF379218A59D120061768B /* RGObject.m in Sources */,
 				AB32A72C18A6F5E00075BE80 /* RGConfigData.m in Sources */,
 				ABCF379C18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */,
@@ -790,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABEC2A2F18A953A700AF7945 /* RGHTTPSessionManager.m in Sources */,
 				AB712B31175A8A850039AC42 /* main.m in Sources */,
 				AB712B35175A8A850039AC42 /* RGAppDelegate.m in Sources */,
 				AB712B44175A8A860039AC42 /* RGRSS.xcdatamodeld in Sources */,
@@ -848,6 +857,7 @@
 				AB730959175AA281006BC71C /* FPXMLParser.m in Sources */,
 				AB73095B175AA281006BC71C /* FPExtensionElementNode.m in Sources */,
 				AB73095D175AA281006BC71C /* FPExtensionNode.m in Sources */,
+				ABEC2A3018A953A700AF7945 /* RGHTTPSessionManager.m in Sources */,
 				AB73095F175AA281006BC71C /* FPExtensionTextNode.m in Sources */,
 				AB32A72618A6E6440075BE80 /* RGDataManager.m in Sources */,
 				AB735041175B77010006E22D /* _RGCategory.m in Sources */,

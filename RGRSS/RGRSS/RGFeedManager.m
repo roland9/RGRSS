@@ -9,6 +9,7 @@
 #import "RGFeedManager.h"
 #import "RGChannel.h"
 #import <AFNetworking/AFNetworking.h>
+#import "RGHTTPSessionManager.h"
 #import "FPFeed.h"
 #import "FPParser.h"
 #import "RGObject.h"
@@ -56,22 +57,22 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     DDLogInfo(@"%s", __FUNCTION__);
 
 #warning fix the hard coded URLs
-    [[AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://www.spiegel.de/"]] getPath:@"schlagzeilen/tops/index.rss" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSError *error;
-        FPFeed *feed = [FPParser parsedFeedWithData:responseObject error:&error];
-
-        __block RGChannel *appFeed = nil;
-        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-            
-            NSString *feedTitle = [feed title];
-            appFeed = [RGChannel feedWithName:feedTitle inContext:localContext];
-            [appFeed MR_importValuesForKeysWithObject:feed];
-            
-        }];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        <#code#>
-    }];
+//    [[AFHTTPClient clientWithBaseURL:[NSURL URLWithString:@"http://www.spiegel.de/"]] getPath:@"schlagzeilen/tops/index.rss" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSError *error;
+//        FPFeed *feed = [FPParser parsedFeedWithData:responseObject error:&error];
+//
+//        __block RGChannel *appFeed = nil;
+//        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+//            
+//            NSString *feedTitle = [feed title];
+//            appFeed = [RGChannel feedWithName:feedTitle inContext:localContext];
+//            [appFeed MR_importValuesForKeysWithObject:feed];
+//            
+//        }];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+////        <#code#>
+//    }];
 }
 
 
@@ -90,18 +91,16 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 
-- (void)loadDataURL:(NSURL *)theURL {
-    DDLogInfo(@"%s: url=%@", __FUNCTION__, [theURL description]);
+- (void)loadDataURLString:(NSString *)theURLString {
+    DDLogInfo(@"%s: url=%@", __FUNCTION__, theURLString);
 
-    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[RGHTTPSessionManager manager] GET:theURLString parameters:NULL success:^(NSURLSessionDataTask *task, id responseObject) {
         NSError *error;
-
+        
         if (!error) {
-            NSAssert([responseObject isKindOfClass:[NSData class]], @"inconsistent");
-            NSData *data = (NSData *)responseObject;
-            NSError *errorParsing;
-            
-            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParsing];
+            NSAssert([responseObject isKindOfClass:[NSDictionary class]], @"inconsistent");
+            NSDictionary *json = (NSDictionary *)responseObject;
+
             NSArray *entries = json[@"feed"][@"entry"];
             NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
             NSMutableArray __block *itemEntries = [NSMutableArray array];
@@ -120,34 +119,37 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
                 
                 [itemEntries addObject:item];
             }];
-
+            
             [self updateSubentries:itemEntries];
             DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
-
+            
             self.responseEntries = [NSArray arrayWithArray:itemEntries];
             
         } else
             self.responseEntries = nil;
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         self.responseEntries = nil;
-
+        
     }];
+
+//    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//
+//    }];
 }
 
 
-- (void)loadMetadataURL:(NSURL *)theURL {
-    DDLogInfo(@"%s: url=%@", __FUNCTION__, [theURL description]);
+- (void)loadMetadataURLString:(NSString *)theURLString {
+    DDLogInfo(@"%s: url=%@", __FUNCTION__, theURLString);
     
-    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[RGHTTPSessionManager manager] GET:theURLString parameters:NULL success:^(NSURLSessionDataTask *task, id responseObject) {
         NSError *error;
         
         if (!error) {
-            NSAssert([responseObject isKindOfClass:[NSData class]], @"inconsistent");
-            NSData *data = (NSData *)responseObject;
-            NSError *errorParsing;
-            
-            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParsing];
+            NSAssert([responseObject isKindOfClass:[NSDictionary class]], @"inconsistent");
+            NSDictionary *json = (NSDictionary *)responseObject;
+
             NSArray *entries = json[@"feed"][@"entry"];
             NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
             NSMutableArray __block *configEntries = [NSMutableArray array];
@@ -169,7 +171,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         } else
             self.metadataEntries = nil;
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         self.metadataEntries = nil;
         
     }];
