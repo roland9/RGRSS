@@ -941,7 +941,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RGRSS.app/RGRSS";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -974,7 +973,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E53B20EE463141C2BB45E4F2 /* Pods-RGRSSTestsXC.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RGRSS.app/RGRSS";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;

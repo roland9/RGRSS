@@ -8,7 +8,7 @@ SPEC_BEGIN(SpreadsheetTests)
 describe(@"Loading Spreadsheet", ^{
     
     beforeAll(^{
-        NSString *urlString = @"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od6/public/values?alt=json";
+        NSString *urlString = @"0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json";
         [[RGFeedManager sharedRGFeedManager] loadDataURLString:urlString];
     });
     

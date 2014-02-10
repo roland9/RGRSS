@@ -49,6 +49,9 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     
     __block NSString *myTitle = self.levelDescription;
     
+    // kick off data loading
+    [RGDataManager sharedRGDataManager];    
+
     // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
     if (!myTitle) {
 #warning handle async setup
@@ -78,9 +81,6 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     
     
 #warning handle async setup
-    
-    // kick off data loading
-    [RGDataManager sharedRGDataManager];
     
     double delayInSeconds = 5.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
