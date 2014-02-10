@@ -13,7 +13,7 @@
 #import "RGItemCell+ConfigureForItem.h"
 #import "RGDataManager.h"
 #import "RGObject.h"
-#import "RGMetadata.h"
+#import "RGConfigData.h"
 
 
 static NSString * const ItemCellIdentifier = @"ItemCell";
@@ -43,18 +43,18 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
         [cell configureForItem:item];
     };
 
-    // kick off global setup & loading data - once
-    self.level = [[RGDataManager sharedRGDataManager] currentLevel];
-    self.parentId = [[RGDataManager sharedRGDataManager] selectedParentId];
+    NSString *myTitle = self.levelDescription;
     
-    NSArray *allMetadata = [[[RGFeedManager sharedRGFeedManager] metadataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"level=%@", [NSString stringWithFormat:@"%d", self.level]]];
-    if ([allMetadata count] > 0) {
-        RGMetadata *metadata = (RGMetadata *)allMetadata[0];
-        self.navigationItem.title = metadata.myDescription;
-    } else
-        self.navigationItem.title = @"";
+    // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
+    if (!myTitle) {
+        NSArray *allConfigData = [[[RGFeedManager sharedRGFeedManager] metadataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"configItem=0"]];
+        if ([allConfigData count] > 0)
+            myTitle = ((RGConfigData *)allConfigData[0]).configValue;
+    }
 
-    if (self.level != 0) {
+    self.navigationItem.title = myTitle;
+
+    if (self.parentId != 0) {
         NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
         
         self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
@@ -87,7 +87,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RGObject *obj = [self.itemsArrayDataSource itemAtIndexPath:indexPath];
-    if ([obj.numberOfSubentries isEqualToString:@"0"]) {
+    if ([obj.numberOfSubentries isEqualToNumber:@0]) {
         return;
     }
     
@@ -95,12 +95,8 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     RGTableViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"RGTableViewController"];
     NSAssert([tvc isKindOfClass:[RGTableViewController class]], @"expected TVC");
 
-    [[RGDataManager sharedRGDataManager] setSelectedParentId:obj.itemId];
-#warning this is wrong - going back, it should be decreased again?!?
-    [[RGDataManager sharedRGDataManager] increasedLevel];
-    
-//    tvc.parentId = obj.itemId;
-//    tvc.itemsArrayDataSource
+    tvc.parentId = obj.itemId;
+    tvc.levelDescription = obj.nextLevel;
 
     [self.navigationController pushViewController:tvc animated:YES];
 }

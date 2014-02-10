@@ -28,17 +28,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Public
 
-- (NSUInteger)increasedLevel {
-    return ++self.currentLevel;
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Setter
-
-- (void)setCurrentLevel:(NSUInteger)currentLevel {
-    _currentLevel = currentLevel;
-}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,8 +39,6 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 - (id)init {
     self = [super init];
     if (self) {
-        _currentLevel = 0;
-        _selectedParentId = @"0";
         
         NSURL *url = [NSURL URLWithString:@"http://spreadsheets.google.com/feeds/list/0Apmsn6hlyPHudDBHbWJ6NkI4SFNwTEkzQVBXS3VGY0E/od6/public/values?alt=json"];
         [[RGFeedManager sharedRGFeedManager] loadDataURL:url];

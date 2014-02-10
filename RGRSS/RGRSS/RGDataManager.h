@@ -10,10 +10,6 @@
 
 @interface RGDataManager : NSObject
 
-@property (nonatomic, readonly, getter = currentLevel) NSUInteger currentLevel;
-@property (nonatomic, copy) NSString *selectedParentId;
-- (NSUInteger)increasedLevel;
-
 + (id)sharedRGDataManager;
 
 @end

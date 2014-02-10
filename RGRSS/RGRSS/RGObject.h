@@ -13,6 +13,11 @@
 @property (nonatomic, copy) NSString *itemId;
 @property (nonatomic, copy) NSString *parentId;
 @property (nonatomic, copy) NSString *itemDescription;
-@property (nonatomic, copy) NSString *numberOfSubentries;
+@property (nonatomic, copy) NSString *nextLevel;
+@property (nonatomic, copy) NSString *imageFull;
+@property (nonatomic, copy) NSString *imageThumbnail;
+@property (nonatomic, copy) NSString *detailHTML;
+
+@property (nonatomic, copy) NSNumber *numberOfSubentries;
 
 @end

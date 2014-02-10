@@ -12,7 +12,7 @@
 #import "FPFeed.h"
 #import "FPParser.h"
 #import "RGObject.h"
-#import "RGMetadata.h"
+#import "RGConfigData.h"
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -112,7 +112,11 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
                 RGObject *item = [[RGObject alloc] init];
                 item.itemId = dict[@"gsx$itemid"][@"$t"];
                 item.parentId = dict[@"gsx$parentid"][@"$t"];
-                item.itemDescription = dict[@"gsx$description"][@"$t"];
+                item.itemDescription = dict[@"gsx$itemdescription"][@"$t"];
+                item.nextLevel = dict[@"gsx$nextlevel"][@"$t"];
+                item.imageFull = dict[@"gsx$imagefull"][@"$t"];
+                item.imageThumbnail = dict[@"gsx$imagethumbnail"][@"$t"];
+                item.detailHTML = dict[@"gsx$detailhtml"][@"$t"];
                 
                 [itemEntries addObject:item];
             }];
@@ -146,21 +150,21 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
             id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParsing];
             NSArray *entries = json[@"feed"][@"entry"];
             NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
-            NSMutableArray __block *itemEntries = [NSMutableArray array];
+            NSMutableArray __block *configEntries = [NSMutableArray array];
             
             [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
                 NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
                 
-                RGMetadata *metadata = [[RGMetadata alloc] init];
-                metadata.level = dict[@"gsx$level"][@"$t"];
-                metadata.myDescription = dict[@"gsx$description"][@"$t"];
+                RGConfigData *config = [[RGConfigData alloc] init];
+                config.configItem = dict[@"gsx$settings"][@"$t"];
+                config.configValue = dict[@"gsx$value"][@"$t"];
                 
-                [itemEntries addObject:metadata];
+                [configEntries addObject:config];
             }];
             
-            DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
+            DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, configEntries);
             
-            self.metadataEntries = [NSArray arrayWithArray:itemEntries];
+            self.metadataEntries = [NSArray arrayWithArray:configEntries];
             
         } else
             self.metadataEntries = nil;
@@ -186,7 +190,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
     [entries enumerateObjectsUsingBlock:^(RGObject *obj, NSUInteger idx, BOOL *stop) {
 #warning optimize - check if been calculated before
-        obj.numberOfSubentries = [NSString stringWithFormat:@"%d", [[entries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", obj.itemId]] count]];
+        obj.numberOfSubentries = @([[entries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", obj.itemId]] count]);
     }];
 }
 
