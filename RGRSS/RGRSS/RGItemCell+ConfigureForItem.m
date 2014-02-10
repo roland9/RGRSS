@@ -27,19 +27,29 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     DDLogInfo(@"%s", __FUNCTION__);
 
     self.itemTitleLabel.text = item.itemDescription;
+    BOOL doesShowDisclosureIndicator = NO;
     
     if ([item.numberOfSubentries integerValue] > 0) {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        self.selectionStyle = UITableViewCellSelectionStyleGray;
         self.subentriesLabel.text = [item.numberOfSubentries stringValue];
+        doesShowDisclosureIndicator = YES;
     } else {
-        self.accessoryType = UITableViewCellAccessoryNone;
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.subentriesLabel.text = @"";
     }
     
     if ([item.imageThumbnail length] > 0) {
         [self.thumbnailImageView setImageWithURL:[NSURL URLWithString:item.imageThumbnail] placeholderImage:nil];
+    }
+    
+    if ([item.detailHTML length] > 0) {
+        doesShowDisclosureIndicator = YES;
+    }
+    
+    if (doesShowDisclosureIndicator) {
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+    } else {
+        self.accessoryType = UITableViewCellAccessoryNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 

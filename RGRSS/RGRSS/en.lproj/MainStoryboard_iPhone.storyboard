@@ -43,7 +43,7 @@
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
             <objects>
-                <viewController title="Detail" id="21" customClass="RGDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RGDetailViewController" title="Detail" id="21" customClass="RGDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6RM-7p-jMM"/>
                         <viewControllerLayoutGuide type="bottom" id="S7J-pZ-6Cb"/>
