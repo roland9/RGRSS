@@ -52,8 +52,17 @@ describe(@"Loading Spreadsheet", ^{
         obj4.imageThumbnail = @"";
         obj4.detailHTML = @"Frankfurt detail HTML";
 
+        RGObject *obj5 = [[RGObject alloc] init];
+        obj5.itemId = @"7";
+        obj5.parentId = @"1";
+        obj5.itemDescription = @"China";
+        obj5.nextLevel = @"City";
+        obj5.imageFull = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1000px-Flag_of_the_People%27s_Republic_of_China.svg.png";
+        obj5.imageThumbnail = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/200px-Flag_of_the_People%27s_Republic_of_China.svg.png";
+        obj5.detailHTML = @"";
+        
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] responseEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
-         containObjectsInArray:@[obj1, obj2, obj3, obj4]];
+         containObjectsInArray:@[obj1, obj2, obj3, obj4, obj5]];
         
     });
 });
