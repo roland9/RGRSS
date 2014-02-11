@@ -52,33 +52,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <rect key="frame" x="20" y="72" width="280" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsU-nu-jsj">
-                                <rect key="frame" x="0.0" y="97" width="320" height="471"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsU-nu-jsj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hsU-nu-jsj" secondAttribute="bottom" id="0s5-sE-DSq"/>
                             <constraint firstAttribute="trailing" secondItem="hsU-nu-jsj" secondAttribute="trailing" id="6pC-1P-YFH"/>
-                            <constraint firstItem="hsU-nu-jsj" firstAttribute="top" secondItem="27" secondAttribute="bottom" constant="8" id="B7u-c7-EMS"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" id="R0m-z7-TWk"/>
-                            <constraint firstItem="hsU-nu-jsj" firstAttribute="leading" secondItem="22" secondAttribute="leading" id="oRk-J6-sUU"/>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" id="pRe-qY-58T"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="6RM-7p-jMM" secondAttribute="bottom" constant="8" id="qb7-0b-ywb"/>
-                            <constraint firstItem="S7J-pZ-6Cb" firstAttribute="top" secondItem="hsU-nu-jsj" secondAttribute="bottom" id="sgL-Jp-be5"/>
+                            <constraint firstItem="hsU-nu-jsj" firstAttribute="leading" secondItem="22" secondAttribute="leading" id="B6H-Qg-zW9"/>
+                            <constraint firstItem="hsU-nu-jsj" firstAttribute="top" secondItem="22" secondAttribute="top" id="eNx-oq-i06"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
                         <outlet property="webView" destination="hsU-nu-jsj" id="wpv-BL-r2i"/>
                     </connections>
                 </viewController>
