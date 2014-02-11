@@ -14,6 +14,13 @@
 #import "RGItemCell+ConfigureForItem.h"
 #import "RGObject.h"
 #import "RGConfigData.h"
+#import "DDLog.h"
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#else
+static const int ddLogLevel = LOG_LEVEL_ERROR;
+#endif
 
 
 static NSString * const ItemCellIdentifier = @"ItemCell";
@@ -38,9 +45,34 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     [self setupTableView];
 }
 
+- (void)dealloc {
+    [[RGFeedManager sharedRGFeedManager] removeObserver:self forKeyPath:@"configDataEntries" context:nil];
+}
+
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.parentId = @"0";
+
+    [[RGFeedManager sharedRGFeedManager] addObserver:self forKeyPath:@"configDataEntries" options:NSKeyValueObservingOptionNew context:nil];
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Private
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    DDLogInfo(@"%s: keyPath=%@", __FUNCTION__, keyPath);
+    
+    if ([keyPath isEqualToString:@"configDataEntries"]) {
+        DDLogInfo(@"%s", __FUNCTION__);
+        
+        NSArray *initialLevelConfig = [[[RGFeedManager sharedRGFeedManager] configDataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%K = %@", @"configItem", @"InitialLevel"]];
+        if ([initialLevelConfig count] > 0)
+        self.navigationItem.title = ((RGConfigData *)initialLevelConfig[0]).configValue;
+    }
+}
+
 
 - (void)setupTableView {
     [self.tableView registerNib:[RGItemCell nib] forCellReuseIdentifier:[self cellIdentifier]];
@@ -48,27 +80,16 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     // kick off data loading
     [RGFeedManager sharedRGFeedManager];
 
-    __block NSString *myTitle = self.levelDescription;
-    
-    // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
-    if (!myTitle) {
-#warning handle async setup
-        double delayInSeconds = 6.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSArray *initialLevelConfig = [[[RGFeedManager sharedRGFeedManager] configDataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%K = %@", @"configItem", @"InitialLevel"]];
-                        if ([initialLevelConfig count] > 0)
-                myTitle = ((RGConfigData *)initialLevelConfig[0]).configValue;
-            self.navigationItem.title = myTitle;
-        });
-    }
-    
+    // for the initial level, get the description from the config sheet in the database (use KVO to find out when it's available); for others, it's set by the parent table view controller
+    NSString *myTitle = self.levelDescription;
     self.navigationItem.title = myTitle;
+    
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - RGBaseFRCProtocol - Fetched results controller & Table View
+
 - (NSArray *)sortDescriptors {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemDescription" ascending:YES];
     return @[sortDescriptor];
@@ -89,6 +110,10 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 
 - (NSString *)cellIdentifier {
     return ItemCellIdentifier;
+}
+
+- (NSPredicate *)predicate {
+    return [NSPredicate predicateWithFormat:@"parentId = %@", self.parentId];
 }
 
 

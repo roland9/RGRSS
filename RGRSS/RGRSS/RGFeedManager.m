@@ -18,7 +18,7 @@
 #import "DDLog.h"
 
 #ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_INFO;
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #else
 static const int ddLogLevel = LOG_LEVEL_ERROR;
 #endif
@@ -251,12 +251,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Setter
 
-//- (void)setDataEntries:(NSArray *)dataEntries {
-//    _dataEntries = dataEntries;
-//}
-
 - (void)setConfigDataEntries:(NSArray *)configDataEntries {
+    [self willChangeValueForKey:@"configDataEntries"];
     _configDataEntries = configDataEntries;
+    [self didChangeValueForKey:@"configDataEntries"];
 }
 
 
