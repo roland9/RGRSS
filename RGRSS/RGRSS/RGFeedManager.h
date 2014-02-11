@@ -8,15 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class RGChannel;
+@class RGChannel, RGObject;
 
 
 @interface RGFeedManager : NSObject <NSXMLParserDelegate>
 
-@property (nonatomic, readonly, strong) NSArray *dataEntries;
+//@property (nonatomic, readonly, strong) NSArray *dataEntries;
+- (NSArray *)dataEntries;
+
 @property (nonatomic, readonly, strong) NSArray *configDataEntries;
 
+
 - (NSArray *)itemsWithParentId:(NSString *)theParentId;
+- (RGObject *)objectWithItemId:(NSString *)theItemId;
 
 - (void)reloadAllChannels;
 - (void)reloadChannel:(RGChannel *)channel;

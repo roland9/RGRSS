@@ -178,9 +178,27 @@ const struct RGChannelFetchedProperties RGChannelFetchedProperties = {
 @dynamic category;
 
 	
+- (NSMutableSet*)categorySet {
+	[self willAccessValueForKey:@"category"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"category"];
+  
+	[self didAccessValueForKey:@"category"];
+	return result;
+}
+	
 
 @dynamic items;
 
+	
+- (NSMutableSet*)itemsSet {
+	[self willAccessValueForKey:@"items"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"items"];
+  
+	[self didAccessValueForKey:@"items"];
+	return result;
+}
 	
 
 

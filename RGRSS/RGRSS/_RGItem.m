@@ -122,6 +122,15 @@ const struct RGItemFetchedProperties RGItemFetchedProperties = {
 @dynamic category;
 
 	
+- (NSMutableSet*)categorySet {
+	[self willAccessValueForKey:@"category"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"category"];
+  
+	[self didAccessValueForKey:@"category"];
+	return result;
+}
+	
 
 @dynamic channel;
 

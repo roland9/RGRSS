@@ -34,6 +34,12 @@
 		AB4639B318A561360081E912 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
 		AB4639B418A561360081E912 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
 		AB4639BA18A561360081E912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB4639B818A561360081E912 /* InfoPlist.strings */; };
+		AB5DA75C18AA33030033D7DD /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA75B18AA33030033D7DD /* RGObject.m */; };
+		AB5DA75D18AA33030033D7DD /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA75B18AA33030033D7DD /* RGObject.m */; };
+		AB5DA75E18AA33030033D7DD /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA75B18AA33030033D7DD /* RGObject.m */; };
+		AB5DA76118AA331A0033D7DD /* _RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA76018AA331A0033D7DD /* _RGObject.m */; };
+		AB5DA76218AA331A0033D7DD /* _RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA76018AA331A0033D7DD /* _RGObject.m */; };
+		AB5DA76318AA331A0033D7DD /* _RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5DA76018AA331A0033D7DD /* _RGObject.m */; };
 		AB712B23175A8A850039AC42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B22175A8A850039AC42 /* UIKit.framework */; };
 		AB712B25175A8A850039AC42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B24175A8A850039AC42 /* Foundation.framework */; };
 		AB712B27175A8A850039AC42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB712B26175A8A850039AC42 /* CoreGraphics.framework */; };
@@ -108,9 +114,6 @@
 		ABCF378B18A599930061768B /* RGItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378A18A599930061768B /* RGItemCell.m */; };
 		ABCF378C18A599930061768B /* RGItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378A18A599930061768B /* RGItemCell.m */; };
 		ABCF378D18A599930061768B /* RGItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378A18A599930061768B /* RGItemCell.m */; };
-		ABCF379018A59D120061768B /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378F18A59D120061768B /* RGObject.m */; };
-		ABCF379118A59D120061768B /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378F18A59D120061768B /* RGObject.m */; };
-		ABCF379218A59D120061768B /* RGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF378F18A59D120061768B /* RGObject.m */; };
 		ABCF379A18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */; };
 		ABCF379B18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */; };
 		ABCF379C18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */; };
@@ -160,6 +163,10 @@
 		AB4639B718A561360081E912 /* RGRSSTestsXC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RGRSSTestsXC-Info.plist"; sourceTree = "<group>"; };
 		AB4639B918A561360081E912 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB4639BD18A561360081E912 /* RGRSSTestsXC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RGRSSTestsXC-Prefix.pch"; sourceTree = "<group>"; };
+		AB5DA75A18AA33030033D7DD /* RGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGObject.h; sourceTree = "<group>"; };
+		AB5DA75B18AA33030033D7DD /* RGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGObject.m; sourceTree = "<group>"; };
+		AB5DA75F18AA331A0033D7DD /* _RGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RGObject.h; sourceTree = "<group>"; };
+		AB5DA76018AA331A0033D7DD /* _RGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RGObject.m; sourceTree = "<group>"; };
 		AB712B1F175A8A850039AC42 /* RGRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB712B22175A8A850039AC42 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB712B24175A8A850039AC42 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,8 +247,6 @@
 		ABCF378518A598370061768B /* RGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGTableViewController.m; sourceTree = "<group>"; };
 		ABCF378918A599930061768B /* RGItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGItemCell.h; sourceTree = "<group>"; };
 		ABCF378A18A599930061768B /* RGItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItemCell.m; sourceTree = "<group>"; };
-		ABCF378E18A59D120061768B /* RGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGObject.h; sourceTree = "<group>"; };
-		ABCF378F18A59D120061768B /* RGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGObject.m; sourceTree = "<group>"; };
 		ABCF379818A59E280061768B /* RGItemCell+ConfigureForItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RGItemCell+ConfigureForItem.h"; sourceTree = "<group>"; };
 		ABCF379918A59E280061768B /* RGItemCell+ConfigureForItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RGItemCell+ConfigureForItem.m"; sourceTree = "<group>"; };
 		ABCF379D18A5A0EB0061768B /* RGItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RGItemCell.xib; sourceTree = "<group>"; };
@@ -374,16 +379,14 @@
 		AB712B2A175A8A850039AC42 /* RGRSS */ = {
 			isa = PBXGroup;
 			children = (
-				ABEC2A2D18A953A700AF7945 /* RGHTTPSessionManager.h */,
-				ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */,
 				ABF6983317B700E4002B59E7 /* Includes */,
 				AB72FD76175A8F0F00D11C54 /* Core Data Entities */,
 				AB712B34175A8A850039AC42 /* RGAppDelegate.m */,
 				AB712B3C175A8A860039AC42 /* MainStoryboard_iPhone.storyboard */,
 				AB712B3F175A8A860039AC42 /* MainStoryboard_iPad.storyboard */,
 				AB43433418A5587E00D7E7E7 /* RGFeedManager.m */,
+				ABEC2A2E18A953A700AF7945 /* RGHTTPSessionManager.m */,
 				ABCF378018A5979B0061768B /* RGArrayDataSource.m */,
-				ABCF378F18A59D120061768B /* RGObject.m */,
 				AB32A72918A6F5E00075BE80 /* RGConfigData.m */,
 				AB32A72218A6E50B0075BE80 /* Cells */,
 				AB1F83A5176E507B00CE3C6E /* VCs */,
@@ -438,6 +441,8 @@
 				AB735035175B77000006E22D /* _RGItem.m */,
 				AB735036175B77010006E22D /* _RGLink.h */,
 				AB735037175B77010006E22D /* _RGLink.m */,
+				AB5DA75F18AA331A0033D7DD /* _RGObject.h */,
+				AB5DA76018AA331A0033D7DD /* _RGObject.m */,
 				AB735038175B77010006E22D /* RGCategory.h */,
 				AB735039175B77010006E22D /* RGCategory.m */,
 				AB73503A175B77010006E22D /* RGChannel.h */,
@@ -446,6 +451,8 @@
 				AB73503D175B77010006E22D /* RGItem.m */,
 				AB73503E175B77010006E22D /* RGLink.h */,
 				AB73503F175B77010006E22D /* RGLink.m */,
+				AB5DA75A18AA33030033D7DD /* RGObject.h */,
+				AB5DA75B18AA33030033D7DD /* RGObject.m */,
 			);
 			name = "Core Data Entities";
 			sourceTree = "<group>";
@@ -532,11 +539,11 @@
 		ABF6983317B700E4002B59E7 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				ABEC2A2D18A953A700AF7945 /* RGHTTPSessionManager.h */,
 				ABCF379818A59E280061768B /* RGItemCell+ConfigureForItem.h */,
 				AB32A72818A6F5E00075BE80 /* RGConfigData.h */,
 				ABCF377F18A5979B0061768B /* RGArrayDataSource.h */,
 				ABCF378418A598370061768B /* RGTableViewController.h */,
-				ABCF378E18A59D120061768B /* RGObject.h */,
 				ABCF378918A599930061768B /* RGItemCell.h */,
 				AB712B33175A8A850039AC42 /* RGAppDelegate.h */,
 				AB43433318A5587E00D7E7E7 /* RGFeedManager.h */,
@@ -776,11 +783,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEC2A3118A953A700AF7945 /* RGHTTPSessionManager.m in Sources */,
-				ABCF379218A59D120061768B /* RGObject.m in Sources */,
+				AB5DA76318AA331A0033D7DD /* _RGObject.m in Sources */,
 				AB32A72C18A6F5E00075BE80 /* RGConfigData.m in Sources */,
 				ABCF379C18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */,
 				ABD88E3718A5641700E97B61 /* RGSampleSpec.m in Sources */,
 				ABCF378318A5979B0061768B /* RGArrayDataSource.m in Sources */,
+				AB5DA75E18AA33030033D7DD /* RGObject.m in Sources */,
 				ABCF378818A598370061768B /* RGTableViewController.m in Sources */,
 				ABCF378D18A599930061768B /* RGItemCell.m in Sources */,
 			);
@@ -806,6 +814,7 @@
 				AB730950175AA281006BC71C /* FPItem.m in Sources */,
 				ABCF379A18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */,
 				ABCF378618A598370061768B /* RGTableViewController.m in Sources */,
+				AB5DA76118AA331A0033D7DD /* _RGObject.m in Sources */,
 				AB730952175AA281006BC71C /* FPLink.m in Sources */,
 				ABCF378B18A599930061768B /* RGItemCell.m in Sources */,
 				AB32A72A18A6F5E00075BE80 /* RGConfigData.m in Sources */,
@@ -815,6 +824,7 @@
 				AB73095A175AA281006BC71C /* FPExtensionElementNode.m in Sources */,
 				AB73095C175AA281006BC71C /* FPExtensionNode.m in Sources */,
 				AB73095E175AA281006BC71C /* FPExtensionTextNode.m in Sources */,
+				AB5DA75C18AA33030033D7DD /* RGObject.m in Sources */,
 				AB735040175B77010006E22D /* _RGCategory.m in Sources */,
 				AB735042175B77010006E22D /* _RGChannel.m in Sources */,
 				AB735044175B77010006E22D /* _RGItem.m in Sources */,
@@ -824,7 +834,6 @@
 				AB73504C175B77010006E22D /* RGItem.m in Sources */,
 				AB73504E175B77010006E22D /* RGLink.m in Sources */,
 				AB1F83A8176E509B00CE3C6E /* RGBaseTVC.m in Sources */,
-				ABCF379018A59D120061768B /* RGObject.m in Sources */,
 				AB1F83AC176E582500CE3C6E /* RGItemsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,6 +849,7 @@
 				AB73094B175AA281006BC71C /* FPCategory.m in Sources */,
 				AB73094D175AA281006BC71C /* FPEnclosure.m in Sources */,
 				AB73094F175AA281006BC71C /* FPFeed.m in Sources */,
+				AB5DA76218AA331A0033D7DD /* _RGObject.m in Sources */,
 				AB730951175AA281006BC71C /* FPItem.m in Sources */,
 				ABCF378C18A599930061768B /* RGItemCell.m in Sources */,
 				AB730953175AA281006BC71C /* FPLink.m in Sources */,
@@ -854,6 +864,7 @@
 				ABCF378218A5979B0061768B /* RGArrayDataSource.m in Sources */,
 				AB735043175B77010006E22D /* _RGChannel.m in Sources */,
 				ABCF378718A598370061768B /* RGTableViewController.m in Sources */,
+				AB5DA75D18AA33030033D7DD /* RGObject.m in Sources */,
 				ABCF379B18A59E280061768B /* RGItemCell+ConfigureForItem.m in Sources */,
 				AB735045175B77010006E22D /* _RGItem.m in Sources */,
 				AB735047175B77010006E22D /* _RGLink.m in Sources */,
@@ -863,7 +874,6 @@
 				AB73504F175B77010006E22D /* RGLink.m in Sources */,
 				AB43433618A5587E00D7E7E7 /* RGFeedManager.m in Sources */,
 				AB1F83A9176E509B00CE3C6E /* RGBaseTVC.m in Sources */,
-				ABCF379118A59D120061768B /* RGObject.m in Sources */,
 				AB1F83AD176E582500CE3C6E /* RGItemsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

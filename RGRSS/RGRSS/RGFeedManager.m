@@ -14,6 +14,7 @@
 #import "FPParser.h"
 #import "RGObject.h"
 #import "RGConfigData.h"
+#import <CoreData+MagicalRecord.h>
 #import "DDLog.h"
 
 #ifdef DEBUG
@@ -46,10 +47,22 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 ////////////////////////////////////////////////////////////////////
 # pragma mark - Public
 
+- (NSArray *)dataEntries {
+    return [RGObject MR_findAll];
+}
+
+
 - (NSArray *)itemsWithParentId:(NSString *)theParentId {
     DDLogInfo(@"%s: parentId=%@", __FUNCTION__, theParentId);
 
     return [self.dataEntries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", theParentId]];
+}
+
+
+- (RGObject *)objectWithItemId:(NSString *)theItemId {
+    DDLogInfo(@"%s: itemId=%@", __FUNCTION__, theItemId);
+
+    return [RGObject MR_findFirstByAttribute:@"itemId" withValue:theItemId];
 }
 
 
@@ -103,41 +116,40 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
             NSArray *entries = json[@"feed"][@"entry"];
             NSAssert([entries isKindOfClass:[NSArray class]], @"expected array");
-            NSMutableArray __block *itemEntries = [NSMutableArray array];
             
-            [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-                NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
+#warning do we really have to clear it out here? that breaks the tests...
+//            [RGObject MR_deleteAllMatchingPredicate:[NSPredicate predicateWithValue:YES]];
+            
+            [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+
+                [entries enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
+                    NSAssert([dict isKindOfClass:[NSDictionary class]], @"inconsistent");
+
+                    RGObject *object = [RGObject objectWithItemId:dict[@"gsx$itemid"][@"$t"] inContext:localContext];
+                    object.parentId = dict[@"gsx$parentid"][@"$t"];
+                    object.itemDescription = dict[@"gsx$itemdescription"][@"$t"];
+                    object.nextLevel = dict[@"gsx$nextlevel"][@"$t"];
+                    object.imageFull = dict[@"gsx$imagefull"][@"$t"];
+                    object.imageThumbnail = dict[@"gsx$imagethumbnail"][@"$t"];
+                    object.articleLink = dict[@"gsx$articlelink"][@"$t"];
+                    object.detailHTML = dict[@"gsx$detailhtml"][@"$t"];
+                }];
                 
-                RGObject *item = [[RGObject alloc] init];
-                item.itemId = dict[@"gsx$itemid"][@"$t"];
-                item.parentId = dict[@"gsx$parentid"][@"$t"];
-                item.itemDescription = dict[@"gsx$itemdescription"][@"$t"];
-                item.nextLevel = dict[@"gsx$nextlevel"][@"$t"];
-                item.imageFull = dict[@"gsx$imagefull"][@"$t"];
-                item.imageThumbnail = dict[@"gsx$imagethumbnail"][@"$t"];
-                item.articleLink = dict[@"gsx$articlelink"][@"$t"];
-                item.detailHTML = dict[@"gsx$detailhtml"][@"$t"];
+            } completion:^(BOOL success, NSError *error) {
                 
-                [itemEntries addObject:item];
+                [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+                    [self updateSubentriesWithContext:localContext];
+                }];
             }];
+
             
-            [self updateSubentries:itemEntries];
-            DDLogVerbose(@"%s: itemEntries=%@", __FUNCTION__, itemEntries);
-            
-            self.dataEntries = [NSArray arrayWithArray:itemEntries];
-            
-        } else
-            self.dataEntries = nil;
+        }
+        //else self.dataEntries = nil;
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        self.dataEntries = nil;
+//        self.dataEntries = nil;
         
     }];
-
-//    [[AFHTTPClient clientWithBaseURL:theURL] getPath:@"" parameters:NULL success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//
-//    }];
 }
 
 
@@ -189,11 +201,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Private
 
-- (void)updateSubentries:(NSMutableArray *)entries {
-
-    [entries enumerateObjectsUsingBlock:^(RGObject *obj, NSUInteger idx, BOOL *stop) {
+- (void)updateSubentriesWithContext:(NSManagedObjectContext *)context {
+    
+    [[RGObject MR_findAll] enumerateObjectsUsingBlock:^(RGObject *obj, NSUInteger idx, BOOL *stop) {
 #warning optimize - check if been calculated before
-        obj.numberOfSubentries = @([[entries filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", obj.itemId]] count]);
+        RGObject *object = [RGObject objectWithItemId:obj.itemId inContext:context];
+        object.numberOfSubentries = [RGObject MR_numberOfEntitiesWithPredicate:[NSPredicate predicateWithFormat:@"parentId = %@", obj.itemId]];
     }];
 }
 
@@ -238,9 +251,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 /////////////////////////////////////////////////////////////////////////////////////////////
 # pragma mark - Setter
 
-- (void)setDataEntries:(NSArray *)dataEntries {
-    _dataEntries = dataEntries;
-}
+//- (void)setDataEntries:(NSArray *)dataEntries {
+//    _dataEntries = dataEntries;
+//}
 
 - (void)setConfigDataEntries:(NSArray *)configDataEntries {
     _configDataEntries = configDataEntries;

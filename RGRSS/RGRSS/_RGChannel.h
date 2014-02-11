@@ -192,16 +192,16 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-@property (nonatomic, strong) RGCategory *category;
+@property (nonatomic, strong) NSSet *category;
 
-//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
-
-
+- (NSMutableSet*)categorySet;
 
 
-@property (nonatomic, strong) RGItem *items;
 
-//- (BOOL)validateItems:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSSet *items;
+
+- (NSMutableSet*)itemsSet;
 
 
 
@@ -210,6 +210,16 @@ extern const struct RGChannelFetchedProperties {
 @end
 
 @interface _RGChannel (CoreDataGeneratedAccessors)
+
+- (void)addCategory:(NSSet*)value_;
+- (void)removeCategory:(NSSet*)value_;
+- (void)addCategoryObject:(RGCategory*)value_;
+- (void)removeCategoryObject:(RGCategory*)value_;
+
+- (void)addItems:(NSSet*)value_;
+- (void)removeItems:(NSSet*)value_;
+- (void)addItemsObject:(RGItem*)value_;
+- (void)removeItemsObject:(RGItem*)value_;
 
 @end
 
@@ -298,13 +308,13 @@ extern const struct RGChannelFetchedProperties {
 
 
 
-- (RGCategory*)primitiveCategory;
-- (void)setPrimitiveCategory:(RGCategory*)value;
+- (NSMutableSet*)primitiveCategory;
+- (void)setPrimitiveCategory:(NSMutableSet*)value;
 
 
 
-- (RGItem*)primitiveItems;
-- (void)setPrimitiveItems:(RGItem*)value;
+- (NSMutableSet*)primitiveItems;
+- (void)setPrimitiveItems:(NSMutableSet*)value;
 
 
 @end

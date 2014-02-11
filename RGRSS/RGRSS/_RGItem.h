@@ -140,9 +140,9 @@ extern const struct RGItemFetchedProperties {
 
 
 
-@property (nonatomic, strong) RGCategory *category;
+@property (nonatomic, strong) NSSet *category;
 
-//- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)categorySet;
 
 
 
@@ -158,6 +158,11 @@ extern const struct RGItemFetchedProperties {
 @end
 
 @interface _RGItem (CoreDataGeneratedAccessors)
+
+- (void)addCategory:(NSSet*)value_;
+- (void)removeCategory:(NSSet*)value_;
+- (void)addCategoryObject:(RGCategory*)value_;
+- (void)removeCategoryObject:(RGCategory*)value_;
 
 @end
 
@@ -219,8 +224,8 @@ extern const struct RGItemFetchedProperties {
 
 
 
-- (RGCategory*)primitiveCategory;
-- (void)setPrimitiveCategory:(RGCategory*)value;
+- (NSMutableSet*)primitiveCategory;
+- (void)setPrimitiveCategory:(NSMutableSet*)value;
 
 
 
