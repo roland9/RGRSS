@@ -204,7 +204,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifier] forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -223,6 +223,11 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     return nil;
 }
 
+
+- (NSString *)cellIdentifier {
+    NSAssert(NO, @"to be overwritten by subclass");
+    return nil;
+}
 
 - (NSPredicate *)predicate {
 //    NSAssert(NO, @"to be overwritten by subclass");

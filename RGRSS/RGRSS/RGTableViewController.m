@@ -43,15 +43,13 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
 # pragma mark - Private
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCell = ^(RGItemCell *cell, RGObject *item) {
-        [cell configureForItem:item];
-    };
-    
-    __block NSString *myTitle = self.levelDescription;
-    
+    [self.tableView registerNib:[RGItemCell nib] forCellReuseIdentifier:[self cellIdentifier]];
+
     // kick off data loading
     [RGFeedManager sharedRGFeedManager];
 
+    __block NSString *myTitle = self.levelDescription;
+    
     // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
     if (!myTitle) {
 #warning handle async setup
@@ -66,41 +64,39 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     }
     
     self.navigationItem.title = myTitle;
-    
-    if (self.parentId) {
-        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:self.parentId];
-        
-        self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
-                                                              cellIdentifier:ItemCellIdentifier
-                                                          configureCellBlock:configureCell];
-        self.tableView.dataSource = self.itemsArrayDataSource;
-        [self.tableView registerNib:[RGItemCell nib] forCellReuseIdentifier:ItemCellIdentifier];
-        [self.tableView reloadData];
-        return;
-    }
-    
-    
-#warning handle async setup
-    
-    double delayInSeconds = 6.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:@"0"];
-        
-        self.itemsArrayDataSource = [[RGArrayDataSource alloc] initWithItems:items
-                                                              cellIdentifier:ItemCellIdentifier
-                                                          configureCellBlock:configureCell];
-        self.tableView.dataSource = self.itemsArrayDataSource;
-        [self.tableView registerNib:[RGItemCell nib] forCellReuseIdentifier:ItemCellIdentifier];
-        [self.tableView reloadData];
-    });
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+# pragma mark - RGBaseFRCProtocol - Fetched results controller & Table View
+- (NSArray *)sortDescriptors {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemDescription" ascending:YES];
+    return @[sortDescriptor];
+}
+
+- (NSString *)entityName {
+    return @"RGObject";
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSAssert([object isKindOfClass:[RGObject class]], @"expected RGObject");
+    NSAssert([cell isKindOfClass:[RGItemCell class]], @"expected RGItemCell");
+    
+    [(RGItemCell *)cell configureForItem:(RGObject *)object];
+}
+
+- (NSString *)cellIdentifier {
+    return ItemCellIdentifier;
+}
+
 
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RGObject *obj = [self.itemsArrayDataSource itemAtIndexPath:indexPath];
+    RGObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if ([obj.numberOfSubentries unsignedIntegerValue] > 0) {
         // we have usbentries -> navigate to next level list

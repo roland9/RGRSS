@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 RG. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RGBaseTVC.h"
 
-@interface RGTableViewController : UITableViewController
+@interface RGTableViewController : RGBaseTVC
 
 @property (nonatomic, copy)   NSString   *parentId;
 @property (nonatomic, copy)   NSString   *levelDescription;
