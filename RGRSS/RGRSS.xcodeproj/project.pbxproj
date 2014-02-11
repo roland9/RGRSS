@@ -25,9 +25,6 @@
 		AB1F83A9176E509B00CE3C6E /* RGBaseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */; };
 		AB1F83AC176E582500CE3C6E /* RGItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */; };
 		AB1F83AD176E582500CE3C6E /* RGItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */; };
-		AB32A72518A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
-		AB32A72618A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
-		AB32A72718A6E6440075BE80 /* RGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72418A6E6440075BE80 /* RGDataManager.m */; };
 		AB32A72A18A6F5E00075BE80 /* RGConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGConfigData.m */; };
 		AB32A72B18A6F5E00075BE80 /* RGConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGConfigData.m */; };
 		AB32A72C18A6F5E00075BE80 /* RGConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB32A72918A6F5E00075BE80 /* RGConfigData.m */; };
@@ -154,8 +151,6 @@
 		AB1F83A7176E509B00CE3C6E /* RGBaseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBaseTVC.m; sourceTree = "<group>"; };
 		AB1F83AA176E582400CE3C6E /* RGItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGItemsTVC.h; sourceTree = "<group>"; };
 		AB1F83AB176E582500CE3C6E /* RGItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGItemsTVC.m; sourceTree = "<group>"; };
-		AB32A72318A6E6440075BE80 /* RGDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGDataManager.h; sourceTree = "<group>"; };
-		AB32A72418A6E6440075BE80 /* RGDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGDataManager.m; sourceTree = "<group>"; };
 		AB32A72818A6F5E00075BE80 /* RGConfigData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGConfigData.h; sourceTree = "<group>"; };
 		AB32A72918A6F5E00075BE80 /* RGConfigData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGConfigData.m; sourceTree = "<group>"; };
 		AB43433318A5587E00D7E7E7 /* RGFeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGFeedManager.h; sourceTree = "<group>"; };
@@ -387,7 +382,6 @@
 				AB712B3C175A8A860039AC42 /* MainStoryboard_iPhone.storyboard */,
 				AB712B3F175A8A860039AC42 /* MainStoryboard_iPad.storyboard */,
 				AB43433418A5587E00D7E7E7 /* RGFeedManager.m */,
-				AB32A72418A6E6440075BE80 /* RGDataManager.m */,
 				ABCF378018A5979B0061768B /* RGArrayDataSource.m */,
 				ABCF378F18A59D120061768B /* RGObject.m */,
 				AB32A72918A6F5E00075BE80 /* RGConfigData.m */,
@@ -540,7 +534,6 @@
 			children = (
 				ABCF379818A59E280061768B /* RGItemCell+ConfigureForItem.h */,
 				AB32A72818A6F5E00075BE80 /* RGConfigData.h */,
-				AB32A72318A6E6440075BE80 /* RGDataManager.h */,
 				ABCF377F18A5979B0061768B /* RGArrayDataSource.h */,
 				ABCF378418A598370061768B /* RGTableViewController.h */,
 				ABCF378E18A59D120061768B /* RGObject.h */,
@@ -790,7 +783,6 @@
 				ABCF378318A5979B0061768B /* RGArrayDataSource.m in Sources */,
 				ABCF378818A598370061768B /* RGTableViewController.m in Sources */,
 				ABCF378D18A599930061768B /* RGItemCell.m in Sources */,
-				AB32A72718A6E6440075BE80 /* RGDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,7 +826,6 @@
 				AB1F83A8176E509B00CE3C6E /* RGBaseTVC.m in Sources */,
 				ABCF379018A59D120061768B /* RGObject.m in Sources */,
 				AB1F83AC176E582500CE3C6E /* RGItemsTVC.m in Sources */,
-				AB32A72518A6E6440075BE80 /* RGDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +850,6 @@
 				AB73095D175AA281006BC71C /* FPExtensionNode.m in Sources */,
 				ABEC2A3018A953A700AF7945 /* RGHTTPSessionManager.m in Sources */,
 				AB73095F175AA281006BC71C /* FPExtensionTextNode.m in Sources */,
-				AB32A72618A6E6440075BE80 /* RGDataManager.m in Sources */,
 				AB735041175B77010006E22D /* _RGCategory.m in Sources */,
 				ABCF378218A5979B0061768B /* RGArrayDataSource.m in Sources */,
 				AB735043175B77010006E22D /* _RGChannel.m in Sources */,

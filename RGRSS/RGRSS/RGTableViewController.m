@@ -12,7 +12,6 @@
 #import "RGFeedManager.h"
 #import "RGItemCell.h"
 #import "RGItemCell+ConfigureForItem.h"
-#import "RGDataManager.h"
 #import "RGObject.h"
 #import "RGConfigData.h"
 
@@ -50,12 +49,12 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     __block NSString *myTitle = self.levelDescription;
     
     // kick off data loading
-    [RGDataManager sharedRGDataManager];    
+    [RGFeedManager sharedRGFeedManager];
 
     // for the initial level, get the description from the config sheet in the database; for others, it's set by the parent table view controller
     if (!myTitle) {
 #warning handle async setup
-        double delayInSeconds = 5.0;
+        double delayInSeconds = 6.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             NSArray *initialLevelConfig = [[[RGFeedManager sharedRGFeedManager] configDataEntries] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%K = %@", @"configItem", @"InitialLevel"]];
@@ -82,7 +81,7 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     
 #warning handle async setup
     
-    double delayInSeconds = 5.0;
+    double delayInSeconds = 6.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         NSArray *items = [[RGFeedManager sharedRGFeedManager] itemsWithParentId:@"0"];

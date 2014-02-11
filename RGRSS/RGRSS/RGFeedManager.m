@@ -247,6 +247,16 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        [self loadDataURLString:@"0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od6/public/values?alt=json"];
+        [self loadConfigDataURLString:@"0Apmsn6hlyPHudHUxSHJ1YzhPVjV4VEJTTkl6aGhnclE/od7/public/values?alt=json"];
+    }
+    return self;
+}
+
+
 + (id)sharedRGFeedManager
 {
     static dispatch_once_t onceQueue;
