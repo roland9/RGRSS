@@ -23,6 +23,7 @@ describe(@"Loading Spreadsheet", ^{
         obj1.imageFull = @"";
         obj1.imageThumbnail = @"";
         obj1.detailHTML = @"";
+        obj1.articleLink = @"http://en.wikipedia.org/wiki/Asia";
         
         RGObject *obj2 = [[RGObject alloc] init];
         obj2.itemId = @"10";
@@ -32,6 +33,7 @@ describe(@"Loading Spreadsheet", ^{
         obj2.imageFull = @"";
         obj2.imageThumbnail = @"";
         obj2.detailHTML = @"";
+        obj2.articleLink = @"http://en.wikipedia.org/wiki/Indonesia";
 
         RGObject *obj3 = [[RGObject alloc] init];
         obj3.itemId = @"41";
@@ -41,6 +43,7 @@ describe(@"Loading Spreadsheet", ^{
         obj3.imageFull = @"";
         obj3.imageThumbnail = @"";
         obj3.detailHTML = @"";
+        obj3.articleLink = @"http://en.wikipedia.org/wiki/Kenya";
 
         RGObject *obj4 = [[RGObject alloc] init];
         obj4.itemId = @"47";
@@ -50,6 +53,7 @@ describe(@"Loading Spreadsheet", ^{
         obj4.imageFull = @"";
         obj4.imageThumbnail = @"";
         obj4.detailHTML = @"<h1>Frankfurt detail HTML</h1>this is the body text";
+        obj4.articleLink = @"http://en.wikipedia.org/wiki/Frankfurt am Main";
 
         RGObject *obj5 = [[RGObject alloc] init];
         obj5.itemId = @"7";
@@ -59,6 +63,7 @@ describe(@"Loading Spreadsheet", ^{
         obj5.imageFull = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1000px-Flag_of_the_People%27s_Republic_of_China.svg.png";
         obj5.imageThumbnail = @"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/200px-Flag_of_the_People%27s_Republic_of_China.svg.png";
         obj5.detailHTML = @"";
+        obj5.articleLink = @"http://en.wikipedia.org/wiki/China";
         
         [[expectFutureValue([[RGFeedManager sharedRGFeedManager] dataEntries]) shouldEventuallyBeforeTimingOutAfter(5)]
          containObjectsInArray:@[obj1, obj2, obj3, obj4, obj5]];
