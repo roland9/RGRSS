@@ -33,7 +33,8 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
     [super viewDidLoad];
     
     self.detailViewController = (RGDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-
+    self.splitViewController.delegate = self.detailViewController;
+    
     [self setupTableView];
 }
 

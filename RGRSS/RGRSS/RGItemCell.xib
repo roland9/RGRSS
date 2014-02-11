@@ -13,23 +13,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zri-Xg-LGv" userLabel="itemTitle">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zri-Xg-LGv" userLabel="itemTitle">
                         <rect key="frame" x="20" y="11" width="193" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQO-vG-Q70" userLabel="subtitle">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQO-vG-Q70" userLabel="subtitle">
                         <rect key="frame" x="227" y="11" width="54" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFF-Ed-GHD">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OFF-Ed-GHD">
                         <rect key="frame" x="221" y="2" width="66" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="39" id="gHQ-pL-CEh"/>
+                            <constraint firstAttribute="width" constant="66" id="ztI-BK-cQg"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="zri-Xg-LGv" firstAttribute="leading" secondItem="PtE-mf-7Vm" secondAttribute="leading" constant="20" id="2hQ-ft-rwW"/>
+                    <constraint firstAttribute="trailing" secondItem="zri-Xg-LGv" secondAttribute="trailing" constant="74" id="9z3-wx-8vr"/>
+                    <constraint firstAttribute="centerY" secondItem="OFF-Ed-GHD" secondAttribute="centerY" id="Gnu-ad-vJu"/>
+                    <constraint firstAttribute="centerY" secondItem="zri-Xg-LGv" secondAttribute="centerY" id="Lko-T3-FH4"/>
+                    <constraint firstItem="OFF-Ed-GHD" firstAttribute="height" secondItem="zri-Xg-LGv" secondAttribute="height" id="ROT-hn-cQg"/>
+                    <constraint firstAttribute="centerY" secondItem="yQO-vG-Q70" secondAttribute="centerY" id="c2E-vP-YKb"/>
+                    <constraint firstItem="OFF-Ed-GHD" firstAttribute="leading" secondItem="zri-Xg-LGv" secondAttribute="trailing" constant="8" id="cbh-cv-qj8"/>
+                    <constraint firstAttribute="trailing" secondItem="yQO-vG-Q70" secondAttribute="trailing" constant="6" id="dSy-mb-V5N"/>
+                    <constraint firstItem="yQO-vG-Q70" firstAttribute="height" secondItem="zri-Xg-LGv" secondAttribute="height" id="lVe-I2-psZ"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="itemTitleLabel" destination="zri-Xg-LGv" id="upX-hg-lb8"/>
