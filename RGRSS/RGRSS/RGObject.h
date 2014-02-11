@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *nextLevel;
 @property (nonatomic, copy) NSString *imageFull;
 @property (nonatomic, copy) NSString *imageThumbnail;
+@property (nonatomic, copy) NSString *articleLink;
 @property (nonatomic, copy) NSString *detailHTML;
 
 @property (nonatomic, copy) NSNumber *numberOfSubentries;

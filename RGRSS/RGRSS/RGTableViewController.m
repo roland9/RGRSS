@@ -118,15 +118,28 @@ static NSString * const ItemCellIdentifier = @"ItemCell";
         // we don't have subentries, but we have detailHTML info -> show html in detailVC
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-
             [self.detailViewController setDetailItem:@{@"title": obj.itemDescription, @"html": obj.detailHTML}];
 
         } else {
-            
             RGDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RGDetailViewController"];
             NSAssert([detailVC isKindOfClass:[RGDetailViewController class]], @"inconsistent storyboard");
             
             [detailVC setDetailItem:@{@"title": obj.itemDescription, @"html": obj.detailHTML}];
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
+        
+    } else if ([obj.articleLink length] > 0) {
+        
+        // we don't have subentries or detailHTML, but we have a hyperlink to an article
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            [self.detailViewController setDetailItem:@{@"title": obj.itemDescription, @"link": obj.articleLink}];
+            
+        } else {
+            RGDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RGDetailViewController"];
+            NSAssert([detailVC isKindOfClass:[RGDetailViewController class]], @"inconsistent storyboard");
+            
+            [detailVC setDetailItem:@{@"title": obj.itemDescription, @"link": obj.articleLink}];
             [self.navigationController pushViewController:detailVC animated:YES];
         }
     }

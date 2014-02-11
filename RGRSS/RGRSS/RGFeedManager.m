@@ -115,6 +115,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
                 item.nextLevel = dict[@"gsx$nextlevel"][@"$t"];
                 item.imageFull = dict[@"gsx$imagefull"][@"$t"];
                 item.imageThumbnail = dict[@"gsx$imagethumbnail"][@"$t"];
+                item.articleLink = dict[@"gsx$articlelink"][@"$t"];
                 item.detailHTML = dict[@"gsx$detailhtml"][@"$t"];
                 
                 [itemEntries addObject:item];

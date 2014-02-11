@@ -43,7 +43,11 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     if ([item.detailHTML length] > 0) {
         doesShowDisclosureIndicator = YES;
     }
-    
+
+    if ([item.articleLink length] > 0) {
+        doesShowDisclosureIndicator = YES;
+    }
+
     if (doesShowDisclosureIndicator) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleGray;

@@ -20,6 +20,7 @@
     [object.nextLevel isEqualToString:self.nextLevel] &&
     [object.imageFull isEqualToString:self.imageFull] &&
     [object.imageThumbnail isEqualToString:self.imageThumbnail] &&
+    [object.articleLink isEqualToString:self.articleLink] &&
     [object.detailHTML isEqualToString:self.detailHTML];
     // &&     [object.numberOfSubentries isEqualToNumber:self.numberOfSubentries];
 }

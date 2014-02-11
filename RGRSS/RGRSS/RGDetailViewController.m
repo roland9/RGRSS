@@ -8,6 +8,7 @@
 
 #import "RGDetailViewController.h"
 
+
 @interface RGDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -35,14 +36,20 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"title"] description];
+    if (self.detailItem && [self.detailItem valueForKey:@"title"]) {
+        self.navigationItem.title = [[self.detailItem valueForKey:@"title"] description];
     }
     
     if ([self.detailItem valueForKey:@"guid"]) {
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.detailItem valueForKey:@"guid"]]]];
+
     } else if ([self.detailItem valueForKey:@"html"]) {
         [self.webView loadHTMLString:[self.detailItem valueForKey:@"html"] baseURL:nil];
+    
+    } else if ([self.detailItem valueForKey:@"link"]) {
+        NSString *escapedLink = [[self.detailItem valueForKey:@"link"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:escapedLink]];
+        [self.webView loadRequest:request];
     }
 }
 
